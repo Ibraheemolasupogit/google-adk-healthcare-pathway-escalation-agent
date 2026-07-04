@@ -1,2 +1,3 @@
 google-adk>=1.36,<2
+mcp>=1.28,<2
 pydantic>=2.7,<3

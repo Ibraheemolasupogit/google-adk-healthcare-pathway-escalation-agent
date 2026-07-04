@@ -8,6 +8,7 @@ from typing import Any, TypeVar, cast
 from uuid import uuid4
 
 from agents.registry import build_agent_registry
+from mcp_servers.client import BoundedMCPClient
 from pydantic import ValidationError
 from schemas.agent import (
     AgentDraft,
@@ -64,12 +65,26 @@ class AgentOrchestrator:
             raise DomainValidationError("Use assess-case for deterministic mode without agents.")
         self._validate_request(request)
 
-        case = request.case or self._invoke_tool(
-            AgentName.COORDINATOR,
-            "get_synthetic_case",
-            {"case_id": request.case_id},
-            lambda: get_case_by_id(str(request.case_id)),
+        mcp_client = (
+            BoundedMCPClient() if request.execution_mode == ExecutionMode.MOCK_MCP else None
         )
+
+        if request.case is not None:
+            case = request.case
+        elif mcp_client is not None:
+            case_payload = mcp_client.call_tool(
+                "case-data",
+                "get_case",
+                {"case_id": request.case_id},
+            )
+            case = get_case_by_id(case_payload["case"]["case_id"])
+        else:
+            case = self._invoke_tool(
+                AgentName.COORDINATOR,
+                "get_synthetic_case",
+                {"case_id": request.case_id},
+                lambda: get_case_by_id(str(request.case_id)),
+            )
         self._record_step(
             AgentName.COORDINATOR,
             "Validated synthetic case request and selected specialist workflow.",
@@ -77,20 +92,37 @@ class AgentOrchestrator:
             "case validated",
         )
 
-        rule = self._invoke_tool(
-            AgentName.PATHWAY,
-            "get_pathway_rule",
-            {"pathway_code": case.pathway_code.value},
-            lambda: get_pathway_rule(case.pathway_code),
-        )
-        assessment = self._invoke_tool(
-            AgentName.PATHWAY,
-            "run_deterministic_assessment",
-            {"case_id": case.case_id},
-            lambda: __import__("services.assessment_service", fromlist=["assess_case"]).assess_case(
-                case
-            ),
-        )
+        if mcp_client is not None:
+            rule_payload = mcp_client.call_tool(
+                "pathway-rules",
+                "get_pathway_rule",
+                {"pathway_code": case.pathway_code.value},
+            )
+            rule = get_pathway_rule(case.pathway_code)
+            assessment_payload = mcp_client.call_tool(
+                "pathway-rules",
+                "run_pathway_assessment",
+                {"case_id": case.case_id},
+            )
+            assessment = PathwayAssessment.model_validate(assessment_payload["assessment"])
+            self.tool_invocations.extend(_mcp_to_agent_invocations(mcp_client))
+            mcp_invocation_count = len(mcp_client.invocations)
+            _ = rule_payload
+        else:
+            rule = self._invoke_tool(
+                AgentName.PATHWAY,
+                "get_pathway_rule",
+                {"pathway_code": case.pathway_code.value},
+                lambda: get_pathway_rule(case.pathway_code),
+            )
+            assessment = self._invoke_tool(
+                AgentName.PATHWAY,
+                "run_deterministic_assessment",
+                {"case_id": case.case_id},
+                lambda: __import__(
+                    "services.assessment_service", fromlist=["assess_case"]
+                ).assess_case(case),
+            )
         self._record_step(
             AgentName.PATHWAY,
             "Retrieved pathway rule and deterministic breach status.",
@@ -111,12 +143,28 @@ class AgentOrchestrator:
             f"{len(risk_factors)} factors",
         )
 
-        evidence = self._invoke_tool(
-            AgentName.EVIDENCE,
-            "retrieve_local_evidence",
-            {"pathway_code": case.pathway_code.value},
-            lambda: retrieve_local_evidence(case.pathway_code),
-        )
+        if mcp_client is not None:
+            evidence_payload = mcp_client.call_tool(
+                "policy-evidence",
+                "get_evidence_for_pathway",
+                {"pathway_code": case.pathway_code.value},
+            )
+            evidence = [
+                LocalEvidenceDocument.model_validate(item) for item in evidence_payload["evidence"]
+            ]
+            self.tool_invocations.extend(
+                _renumber_invocations(
+                    _mcp_to_agent_invocations(mcp_client)[mcp_invocation_count:],
+                    start_sequence=len(self.tool_invocations) + 1,
+                )
+            )
+        else:
+            evidence = self._invoke_tool(
+                AgentName.EVIDENCE,
+                "retrieve_local_evidence",
+                {"pathway_code": case.pathway_code.value},
+                lambda: retrieve_local_evidence(case.pathway_code),
+            )
         self._record_step(
             AgentName.EVIDENCE,
             "Retrieved local demonstration evidence.",
@@ -156,7 +204,11 @@ class AgentOrchestrator:
             model_metadata={
                 "mode": request.execution_mode.value,
                 "model_provider": (
-                    "mock" if request.execution_mode == ExecutionMode.MOCK else "none"
+                    "mock-mcp"
+                    if request.execution_mode == ExecutionMode.MOCK_MCP
+                    else "mock"
+                    if request.execution_mode == ExecutionMode.MOCK
+                    else "none"
                 ),
                 "google_adk_version": load_agent_runtime_config(
                     request.execution_mode
@@ -326,6 +378,43 @@ def _summarise_output(output: object) -> dict[str, object]:
     if isinstance(output, list):
         return {"items": len(output)}
     return {"type": type(output).__name__}
+
+
+def _mcp_to_agent_invocations(client: BoundedMCPClient) -> list[AgentToolInvocation]:
+    converted: list[AgentToolInvocation] = []
+    for item in client.invocations:
+        converted.append(
+            AgentToolInvocation(
+                sequence=len(converted) + 1,
+                agent_name=_agent_for_server(item.invocation.server_name),
+                tool_name=f"mcp:{item.invocation.server_name}.{item.invocation.capability_name}",
+                input_summary=item.invocation.input_summary,
+                output_summary=item.output_summary,
+                started_at=item.invocation.started_at,
+                completed_at=item.completed_at,
+                success=item.success,
+            )
+        )
+    return converted
+
+
+def _renumber_invocations(
+    invocations: list[AgentToolInvocation], start_sequence: int
+) -> list[AgentToolInvocation]:
+    return [
+        invocation.model_copy(update={"sequence": start_sequence + offset})
+        for offset, invocation in enumerate(invocations)
+    ]
+
+
+def _agent_for_server(server_name: str) -> AgentName:
+    if server_name == "case-data":
+        return AgentName.COORDINATOR
+    if server_name == "pathway-rules":
+        return AgentName.PATHWAY
+    if server_name == "policy-evidence":
+        return AgentName.EVIDENCE
+    return AgentName.REVIEW
 
 
 def validate_malformed_model_output(payload: dict[str, object]) -> ReviewResult:

@@ -2,7 +2,7 @@
 
 ## Milestone 2 Status
 
-This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces and CLI commands. Agent orchestration, Gemini, MCP network services, policy retrieval, UI and deployment remain planned.
+This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces, Google ADK mock orchestration, local MCP-compatible server adapters, reusable Agent Skill metadata and CLI commands. Live Gemini calls, frontend review UI and deployment remain planned.
 
 ## Planned Components
 
@@ -13,9 +13,10 @@ This document describes the planned architecture and the implemented determinist
 - **Evidence agent:** retrieves controlled evidence and source metadata.
 - **Escalation agent:** creates structured draft recommendations.
 - **Review agent:** validates completeness, unsupported claims, schema compliance, safety, and human-approval state.
-- **Case-data tools or MCP server:** provides controlled synthetic case access.
-- **Pathway-rules tools or MCP server:** provides validated target configuration.
-- **Policy-evidence tools or MCP server:** retrieves controlled supporting evidence.
+- **Case-data tools and MCP server:** provide controlled synthetic case access.
+- **Pathway-rules tools and MCP server:** provide validated target configuration.
+- **Policy-evidence tools and MCP server:** retrieve controlled local supporting evidence.
+- **Reusable Agent Skills:** define portable skill metadata, schemas, examples and bounded local execution for pathway identification, risk calculation, evidence retrieval and escalation drafting.
 - **Structured schemas:** define synthetic cases, assessments, recommendations, and review state.
 - **Deterministic services:** implement Milestone 2 assessment and risk logic without LLM or external API calls.
 - **ADK orchestration layer:** defines coordinator, pathway, risk, evidence, escalation and review agents with controlled local tools.
@@ -30,7 +31,7 @@ This document describes the planned architecture and the implemented determinist
 1. A reviewer submits a synthetic case.
 2. Guardrails validate the input and reject unsafe or identifiable content.
 3. The ADK orchestration layer coordinates specialist agents around deterministic tools in Milestone 3.
-4. Tools or MCP-compatible servers provide controlled case data, pathway targets, and evidence.
+4. Tools or MCP-compatible servers provide controlled case data, pathway targets and evidence.
 5. Structured schemas validate each output.
 6. Audit logging records the execution trace.
 7. The review agent routes the draft to a human reviewer.

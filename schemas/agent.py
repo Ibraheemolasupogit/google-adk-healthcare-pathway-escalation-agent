@@ -17,7 +17,9 @@ class ExecutionMode(StrEnum):
 
     DETERMINISTIC = "deterministic"
     MOCK = "mock"
+    MOCK_MCP = "mock-mcp"
     LIVE = "live"
+    LIVE_MCP = "live-mcp"
 
 
 class AgentName(StrEnum):

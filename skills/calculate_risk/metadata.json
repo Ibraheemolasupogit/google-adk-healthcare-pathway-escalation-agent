@@ -1,0 +1,10 @@
+{
+  "name": "calculate_risk",
+  "version": "1.0.0",
+  "description": "Run deterministic assessment and return exact operational risk outputs.",
+  "input_schema_path": "schemas/input.schema.json",
+  "output_schema_path": "schemas/output.schema.json",
+  "dependencies": ["pathway-rules"],
+  "demonstration_only": true,
+  "human_review_required": true
+}

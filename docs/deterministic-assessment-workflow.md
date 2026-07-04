@@ -26,4 +26,4 @@ Each assessment contains a unique trace ID, timestamps, rule version, rule used,
 
 ## Milestone Boundaries
 
-This deterministic workflow remains available independently of Google ADK. Milestone 3 wraps it in ADK agent orchestration for mock and live-configured execution, but deterministic values remain authoritative.
+This deterministic workflow remains available independently of Google ADK and MCP. Milestone 3 wraps it in ADK agent orchestration for mock and live-configured execution. Milestone 4 adds local MCP-compatible adapters and reusable Agent Skills that call the same deterministic services, but deterministic values remain authoritative.

@@ -1,0 +1,10 @@
+{
+  "name": "retrieve_evidence",
+  "version": "1.0.0",
+  "description": "Retrieve controlled local demonstration evidence through MCP.",
+  "input_schema_path": "schemas/input.schema.json",
+  "output_schema_path": "schemas/output.schema.json",
+  "dependencies": ["policy-evidence"],
+  "demonstration_only": true,
+  "human_review_required": true
+}

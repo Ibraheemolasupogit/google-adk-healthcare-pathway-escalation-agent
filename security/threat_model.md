@@ -71,3 +71,15 @@
 - **Threat:** Live model output is invalid, unavailable or tries to bypass required schemas.
 - **Mitigation:** Mock mode is used for tests, live mode is credential-gated, malformed output fails validation, and invalid outputs are not presented as successful.
 - **Residual risk:** Live execution needs operational monitoring and timeout configuration in later milestones.
+
+## MCP Misconfiguration or Tool Abuse
+
+- **Threat:** A caller attempts arbitrary MCP server connection, unapproved tool execution, path traversal, command injection, or excessive calls.
+- **Mitigation:** Static registry, allow-listed tools/resources, local stdio transport, in-memory test adapter, input/output limits, call limits, path traversal rejection and safe redaction.
+- **Residual risk:** Future network transports would need authentication and deployment hardening.
+
+## Skill Metadata Tampering
+
+- **Threat:** A caller attempts to load arbitrary skill directories or modified metadata.
+- **Mitigation:** Static approved skill names, metadata validation, local schema files and structured execution results.
+- **Residual risk:** Repository write access can still alter local assets and should be protected through source control review.

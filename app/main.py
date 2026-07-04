@@ -8,6 +8,8 @@ from pathlib import Path
 from typing import Any
 
 from agents.registry import describe_agents
+from mcp_servers.client import BoundedMCPClient
+from mcp_servers.registry import get_server_definition, list_server_definitions
 from schemas.agent import ExecutionMode
 from services.agent_orchestrator import (
     run_agent_assessment,
@@ -15,6 +17,7 @@ from services.agent_orchestrator import (
 )
 from services.assessment_service import assess_case, assess_cases
 from services.risk_engine import assign_risk_level
+from services.skill_executor import execute_skill, list_skill_definitions
 from tools.case_tools import get_case_by_id, load_synthetic_cases
 from tools.evidence_tools import load_local_evidence
 from tools.exceptions import CaseNotFoundError, DomainValidationError, PathwayRuleNotFoundError
@@ -84,6 +87,41 @@ def build_parser() -> argparse.ArgumentParser:
 
     list_evidence = subparsers.add_parser("list-evidence", help="List local evidence.")
     list_evidence.add_argument("--json", action="store_true", help="Output JSON.")
+
+    list_mcp = subparsers.add_parser("list-mcp-servers", help="List approved MCP servers.")
+    list_mcp.add_argument("--json", action="store_true", help="Output JSON.")
+
+    describe_mcp = subparsers.add_parser("describe-mcp-server", help="Describe one MCP server.")
+    describe_mcp.add_argument("--server", required=True)
+    describe_mcp.add_argument("--json", action="store_true", help="Output JSON.")
+
+    validate_mcp = subparsers.add_parser("validate-mcp-config", help="Validate MCP registry.")
+    validate_mcp.add_argument("--json", action="store_true", help="Output JSON.")
+
+    mcp_get_case = subparsers.add_parser("mcp-get-case", help="Fetch a case through MCP.")
+    mcp_get_case.add_argument("--case-id", required=True)
+    mcp_get_case.add_argument("--json", action="store_true", help="Output JSON.")
+
+    mcp_assess = subparsers.add_parser("mcp-assess-case", help="Assess a case through MCP.")
+    mcp_assess.add_argument("--case-id", required=True)
+    mcp_assess.add_argument("--json", action="store_true", help="Output JSON.")
+
+    mcp_evidence = subparsers.add_parser("mcp-search-evidence", help="Search evidence through MCP.")
+    mcp_evidence.add_argument("--pathway-code", required=True)
+    mcp_evidence.add_argument("--query", default="")
+    mcp_evidence.add_argument("--json", action="store_true", help="Output JSON.")
+
+    list_skills = subparsers.add_parser("list-skills", help="List approved Agent Skills.")
+    list_skills.add_argument("--json", action="store_true", help="Output JSON.")
+
+    describe_skill = subparsers.add_parser("describe-skill", help="Describe one approved skill.")
+    describe_skill.add_argument("--skill", required=True)
+    describe_skill.add_argument("--json", action="store_true", help="Output JSON.")
+
+    run_skill = subparsers.add_parser("run-skill", help="Run an approved local skill.")
+    run_skill.add_argument("--skill", required=True)
+    run_skill.add_argument("--case-id", required=True)
+    run_skill.add_argument("--json", action="store_true", help="Output JSON.")
     return parser
 
 
@@ -174,6 +212,59 @@ def _run_command(args: argparse.Namespace) -> int:
 
     if args.command == "list-evidence":
         _emit([item.model_dump(mode="json") for item in load_local_evidence()], args.json)
+        return 0
+
+    if args.command == "list-mcp-servers":
+        _emit([server.model_dump(mode="json") for server in list_server_definitions()], args.json)
+        return 0
+
+    if args.command == "describe-mcp-server":
+        _emit(get_server_definition(args.server).model_dump(mode="json"), args.json)
+        return 0
+
+    if args.command == "validate-mcp-config":
+        servers = list_server_definitions()
+        _emit({"status": "valid", "servers": len(servers), "transport": "stdio"}, args.json)
+        return 0
+
+    if args.command == "mcp-get-case":
+        client = BoundedMCPClient()
+        _emit(client.call_tool("case-data", "get_case", {"case_id": args.case_id}), args.json)
+        return 0
+
+    if args.command == "mcp-assess-case":
+        client = BoundedMCPClient()
+        _emit(
+            client.call_tool("pathway-rules", "run_pathway_assessment", {"case_id": args.case_id}),
+            args.json,
+        )
+        return 0
+
+    if args.command == "mcp-search-evidence":
+        client = BoundedMCPClient()
+        _emit(
+            client.call_tool(
+                "policy-evidence",
+                "search_evidence",
+                {"pathway_code": args.pathway_code, "query": args.query},
+            ),
+            args.json,
+        )
+        return 0
+
+    if args.command == "list-skills":
+        _emit([skill.model_dump(mode="json") for skill in list_skill_definitions()], args.json)
+        return 0
+
+    if args.command == "describe-skill":
+        matches = [skill for skill in list_skill_definitions() if skill.name == args.skill]
+        if not matches:
+            raise ValueError(f"unknown skill: {args.skill}")
+        _emit(matches[0].model_dump(mode="json"), args.json)
+        return 0
+
+    if args.command == "run-skill":
+        _emit(execute_skill(args.skill, args.case_id).model_dump(mode="json"), args.json)
         return 0
 
     raise ValueError(f"Unsupported command: {args.command}")

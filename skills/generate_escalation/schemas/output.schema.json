@@ -1,0 +1,1 @@
+{"type":"object","required":["case_id","sections","human_review_required","review_status","demonstration_only"],"properties":{"case_id":{"type":"string"},"sections":{"type":"object"},"human_review_required":{"type":"boolean"},"review_status":{"type":"string"},"demonstration_only":{"type":"boolean"}}}

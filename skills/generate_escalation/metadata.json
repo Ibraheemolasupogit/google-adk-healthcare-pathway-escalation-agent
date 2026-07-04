@@ -1,0 +1,10 @@
+{
+  "name": "generate_escalation",
+  "version": "1.0.0",
+  "description": "Generate a structured non-clinical escalation draft from validated inputs.",
+  "input_schema_path": "schemas/input.schema.json",
+  "output_schema_path": "schemas/output.schema.json",
+  "dependencies": ["case-data", "pathway-rules", "policy-evidence"],
+  "demonstration_only": true,
+  "human_review_required": true
+}

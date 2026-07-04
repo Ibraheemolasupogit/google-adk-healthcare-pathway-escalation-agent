@@ -1,4 +1,4 @@
-"""Unit tests for Milestone 3 ADK agent definitions and placeholders."""
+"""Unit tests for Milestone 3 ADK agent definitions and remaining placeholders."""
 
 from __future__ import annotations
 
@@ -9,9 +9,6 @@ from agents import build_agent_registry, describe_agents
 from app.config import AppConfig
 from evaluation.evaluator import run_evaluation
 from google.adk.agents import Agent
-from mcp_servers.case_data_server import create_case_data_server
-from mcp_servers.pathway_rules_server import create_pathway_rules_server
-from mcp_servers.policy_evidence_server import create_policy_evidence_server
 from schemas.agent import AgentName
 from schemas.case import SyntheticPathwayCase
 from schemas.escalation import EscalationRecommendation
@@ -49,12 +46,6 @@ def test_every_agent_has_defined_responsibility() -> None:
 def test_non_network_placeholder_modules_still_raise_not_implemented() -> None:
     case: SyntheticPathwayCase = load_synthetic_cases()[0]
 
-    with pytest.raises(NotImplementedError):
-        create_case_data_server()
-    with pytest.raises(NotImplementedError):
-        create_pathway_rules_server()
-    with pytest.raises(NotImplementedError):
-        create_policy_evidence_server()
     with pytest.raises(NotImplementedError):
         run_evaluation()
     with pytest.raises(NotImplementedError):

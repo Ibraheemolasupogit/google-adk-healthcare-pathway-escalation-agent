@@ -28,6 +28,19 @@ from schemas.assessment import (
 )
 from schemas.case import PathwayCategory, PathwayCode, Priority, SyntheticPathwayCase
 from schemas.escalation import EscalationRecommendation
+from schemas.mcp import (
+    MCPInvocation,
+    MCPInvocationResult,
+    MCPResourceDescriptor,
+    MCPServerDefinition,
+    MCPToolDescriptor,
+    MCPTransport,
+    SkillDefinition,
+    SkillExecutionRequest,
+    SkillExecutionResult,
+    SkillExecutionStep,
+    SkillValidationResult,
+)
 
 __all__ = [
     "ActionPriority",
@@ -44,6 +57,12 @@ __all__ = [
     "EscalationRecommendation",
     "ExecutionMode",
     "LocalEvidenceDocument",
+    "MCPInvocation",
+    "MCPInvocationResult",
+    "MCPResourceDescriptor",
+    "MCPServerDefinition",
+    "MCPToolDescriptor",
+    "MCPTransport",
     "PathwayAssessment",
     "PathwayCategory",
     "PathwayCode",
@@ -56,5 +75,10 @@ __all__ = [
     "ReviewStatus",
     "RiskFactor",
     "RiskLevel",
+    "SkillDefinition",
+    "SkillExecutionRequest",
+    "SkillExecutionResult",
+    "SkillExecutionStep",
+    "SkillValidationResult",
     "SyntheticPathwayCase",
 ]

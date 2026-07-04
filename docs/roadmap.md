@@ -14,7 +14,7 @@ Google ADK agent orchestration. Implemented in this milestone with mock/offline 
 
 ## Milestone 4
 
-Tools, MCP interoperability and Agent Skills.
+Tools, MCP interoperability and Agent Skills. Implemented in this milestone with local stdio-compatible servers, bounded adapter and approved skill registry.
 
 ## Milestone 5
 

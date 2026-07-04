@@ -1,1 +1,1 @@
-"""MCP-compatible server placeholders for future milestones."""
+"""Local MCP-compatible servers and bounded client adapters."""

@@ -1,0 +1,1 @@
+{"type":"object","required":["case_id","evidence","demonstration_only","warnings"],"properties":{"case_id":{"type":"string"},"evidence":{"type":"array"},"demonstration_only":{"type":"boolean"},"warnings":{"type":"array","items":{"type":"string"}}}}

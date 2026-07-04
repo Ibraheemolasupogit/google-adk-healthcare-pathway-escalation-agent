@@ -2,7 +2,7 @@
 
 ## Project Scope
 
-The project provides deterministic pathway assessment and a Milestone 3 Google ADK orchestration layer for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations, and requiring human approval before finalisation.
+The project provides deterministic pathway assessment, Google ADK mock orchestration and local MCP interoperability for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations and requiring human approval before finalisation.
 
 ## Goals
 
@@ -16,8 +16,8 @@ The project provides deterministic pathway assessment and a Milestone 3 Google A
 
 - No clinical diagnosis, triage, treatment, or autonomous clinical decision-making.
 - No use of real patient-identifiable data.
-- No production NHS deployment in Milestone 2.
-- No functional MCP network service, frontend, deployment or autonomous escalation in Milestone 3.
+- No production NHS deployment.
+- No frontend, Cloud Run deployment or autonomous escalation in Milestone 4.
 
 ## Functional Requirements
 
@@ -25,7 +25,7 @@ The project provides deterministic pathway assessment and a Milestone 3 Google A
 - **FR-02:** Determine the applicable pathway target.
 - **FR-03:** Calculate target and breach status deterministically.
 - **FR-04:** Calculate an explainable operational risk score.
-- **FR-05:** Retrieve supporting pathway evidence in a future milestone.
+- **FR-05:** Retrieve supporting local demonstration pathway evidence through controlled tools or MCP-compatible adapters.
 - **FR-06:** Generate recommended operational actions.
 - **FR-07:** Require human approval before finalising an escalation.
 - **FR-08:** Record an auditable execution trace.
@@ -49,7 +49,7 @@ The project provides deterministic pathway assessment and a Milestone 3 Google A
 
 ## Constraints
 
-- Milestone 3 adds ADK agent orchestration while preserving deterministic values as the source of truth.
+- Milestone 4 adds local MCP-compatible server adapters and reusable Agent Skills while preserving deterministic values as the source of truth.
 - Secrets must not be committed.
 - Live Gemini execution requires explicit Google configuration and is not required for tests.
 - All outputs must include `human_review_required`.
@@ -68,7 +68,7 @@ The project provides deterministic pathway assessment and a Milestone 3 Google A
 2. Deterministic case tools validate input shape and synthetic-data constraints.
 3. Pathway tools identify the controlled demonstration target rule.
 4. The assessment service calculates breach status and operational risk.
-5. Evidence retrieval remains planned for a later milestone.
+5. Evidence retrieval returns controlled local demonstration evidence and remains validation-required.
 6. The assessment service drafts recommended non-clinical operational actions.
 7. Schemas validate completeness, review state and safety flags.
 8. Human reviewer approves, rejects, or requests changes.
@@ -123,7 +123,7 @@ The final assessment and escalation schemas include:
 
 - Record pathway target source metadata.
 - Record deterministic calculation inputs and outputs.
-- Record evidence retrieval source metadata in a future milestone.
+- Record evidence retrieval source metadata.
 - Record validation results and human approval state.
 - Avoid logging secrets or patient-identifiable information.
 
@@ -138,12 +138,13 @@ The final assessment and escalation schemas include:
 
 ## Acceptance Criteria
 
-- Repository structure supports the Milestone 2 deterministic domain layer.
-- Placeholder agent and MCP modules remain non-network and non-LLM.
-- Schemas validate synthetic cases, rules, assessments, escalation drafts and audit traces.
-- Documentation clearly separates implemented deterministic functionality from planned AI-agent functionality.
+- Repository structure supports the deterministic domain layer, ADK mock layer and local MCP layer.
+- MCP servers are local, allow-listed and non-network for tests.
+- Reusable Agent Skills include metadata, input schemas, output schemas and examples.
+- Schemas validate synthetic cases, rules, assessments, escalation drafts, MCP invocations, skills and audit traces.
+- Documentation clearly separates implemented local functionality from planned live model, UI and deployment functionality.
 - Quality checks pass.
 
 ## Definition of Done
 
-Milestone 2 is done when deterministic rules, case validation, breach assessment, risk scoring, recommended actions, audit traces, CLI commands, documentation and tests are present and passing, with no real patient data, no secrets, no deployment, and no production AI-agent behavior.
+Milestone 4 is done when deterministic rules, ADK mock orchestration, local MCP adapters, reusable Agent Skills, CLI commands, documentation and tests are present and passing, with no real patient data, no secrets, no deployment and no autonomous escalation.

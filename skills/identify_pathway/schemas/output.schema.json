@@ -1,0 +1,1 @@
+{"type":"object","required":["case_id","pathway_code","pathway_name","target","demonstration_only","warnings"],"properties":{"case_id":{"type":"string"},"pathway_code":{"type":"string"},"pathway_name":{"type":"string"},"target":{"type":"object"},"demonstration_only":{"type":"boolean"},"warnings":{"type":"array","items":{"type":"string"}}}}

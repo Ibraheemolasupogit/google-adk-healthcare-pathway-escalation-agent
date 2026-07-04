@@ -96,3 +96,55 @@ def test_cli_validate_agent_config_works_without_credentials() -> None:
     assert result.returncode == 0
     payload = json.loads(result.stdout)
     assert payload["google_adk_version"] == "1.36.0"
+
+
+def test_cli_mcp_config_and_case_tools_work() -> None:
+    config = run_cli("validate-mcp-config", "--json")
+    servers = run_cli("list-mcp-servers", "--json")
+    case = run_cli("mcp-get-case", "--case-id", "SYN-CANCER-2WW-001", "--json")
+    assessment = run_cli("mcp-assess-case", "--case-id", "SYN-CANCER-2WW-001", "--json")
+
+    assert config.returncode == 0
+    assert servers.returncode == 0
+    assert case.returncode == 0
+    assert assessment.returncode == 0
+    assert json.loads(config.stdout)["status"] == "valid"
+    assert {server["name"] for server in json.loads(servers.stdout)} == {
+        "case-data",
+        "pathway-rules",
+        "policy-evidence",
+    }
+    assert json.loads(case.stdout)["case"]["case_id"] == "SYN-CANCER-2WW-001"
+    assert json.loads(assessment.stdout)["assessment"]["case_id"] == "SYN-CANCER-2WW-001"
+
+
+def test_cli_skills_and_mock_mcp_agent_work() -> None:
+    skills = run_cli("list-skills", "--json")
+    skill = run_cli(
+        "run-skill",
+        "--skill",
+        "identify_pathway",
+        "--case-id",
+        "SYN-CANCER-2WW-001",
+        "--json",
+    )
+    agent = run_cli(
+        "agent-assess",
+        "--case-id",
+        "SYN-CANCER-2WW-001",
+        "--mode",
+        "mock-mcp",
+        "--json",
+    )
+
+    assert skills.returncode == 0
+    assert skill.returncode == 0
+    assert agent.returncode == 0
+    assert {item["name"] for item in json.loads(skills.stdout)} == {
+        "calculate_risk",
+        "generate_escalation",
+        "identify_pathway",
+        "retrieve_evidence",
+    }
+    assert json.loads(skill.stdout)["output"]["pathway_code"] == "CANCER_2WW"
+    assert json.loads(agent.stdout)["execution_mode"] == "mock-mcp"

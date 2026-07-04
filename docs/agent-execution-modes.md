@@ -8,6 +8,10 @@ Use existing Milestone 2 commands such as `assess-case` and `assess-all`. No mod
 
 `agent-assess --mode mock` uses ADK agent definitions, deterministic tools, local evidence, structured drafts and review validation without any external API calls. Model metadata is explicitly labelled as mock.
 
+## Mock MCP Mode
+
+`agent-assess --mode mock-mcp` exercises the approved local MCP servers through the bounded in-memory adapter. It requires no Gemini credentials and preserves deterministic values.
+
 ## Live Mode
 
 `agent-assess --mode live` requires valid Google configuration. Missing credentials fail safely and do not print secrets. Live Gemini execution should only be attempted intentionally in an environment configured for external model calls.

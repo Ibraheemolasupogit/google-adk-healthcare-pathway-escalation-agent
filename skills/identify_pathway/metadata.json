@@ -1,0 +1,10 @@
+{
+  "name": "identify_pathway",
+  "version": "1.0.0",
+  "description": "Validate a synthetic case and retrieve the controlled pathway rule.",
+  "input_schema_path": "schemas/input.schema.json",
+  "output_schema_path": "schemas/output.schema.json",
+  "dependencies": ["case-data", "pathway-rules"],
+  "demonstration_only": true,
+  "human_review_required": true
+}

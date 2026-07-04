@@ -2,7 +2,7 @@
 
 NHS Pathway Escalation and Evidence Agent is a portfolio-quality project for the Kaggle **AI Agents: Intensive Vibe Coding Capstone Project** under the **Agents for Good** track. It currently implements a deterministic domain layer for synthetic NHS operational pathway cases: case validation, demonstration pathway-rule loading, elapsed-time calculation, breach classification, explainable operational risk scoring, operational action generation, audit traces and a CLI.
 
-This repository now includes a Milestone 3 Google ADK orchestration layer with offline mock execution. MCP network services, Agent Skills integration beyond documentation, a human approval interface, frontend, deployment and final Kaggle assets remain planned later milestones.
+This repository now includes Google ADK orchestration, local MCP-compatible servers, a bounded MCP adapter, reusable Agent Skills and offline mock/mock-mcp execution. A human approval interface, frontend, deployment and final Kaggle assets remain planned later milestones.
 
 ## Implemented in Milestone 2
 
@@ -23,11 +23,13 @@ This repository now includes a Milestone 3 Google ADK orchestration layer with o
 - Mock execution mode.
 - Live Gemini configuration path.
 - Structured review and agent audit records.
+- Local MCP servers and bounded MCP client adapter.
+- MCP tools and resources for case data, pathway rules and evidence.
+- Reusable Agent Skills with registry and executor.
+- Mock MCP execution mode.
 
 ## Planned Later
 
-- MCP-compatible network services.
-- Agent Skills integration where not yet complete.
 - Live Gemini execution in configured environments.
 - Human approval user interface.
 - Google Cloud Run deployment.
@@ -76,6 +78,13 @@ python -m app.main agent-assess --case-id SYN-CANCER-2WW-001 --mode mock
 python -m app.main describe-agents
 python -m app.main validate-agent-config
 python -m app.main list-evidence
+python -m app.main list-mcp-servers
+python -m app.main validate-mcp-config
+python -m app.main mcp-get-case --case-id SYN-CANCER-2WW-001
+python -m app.main mcp-assess-case --case-id SYN-CANCER-2WW-001
+python -m app.main list-skills
+python -m app.main run-skill --skill identify_pathway --case-id SYN-CANCER-2WW-001
+python -m app.main agent-assess --case-id SYN-CANCER-2WW-001 --mode mock-mcp
 ```
 
 Most commands support `--json`. Assessment commands can write ignored runtime artifacts under `artifacts/assessments/`.
@@ -117,6 +126,10 @@ tests/        unit, integration and security tests
 - [ADK agent architecture](docs/adk-agent-architecture.md)
 - [Agent execution modes](docs/agent-execution-modes.md)
 - [Live model configuration](docs/live-model-configuration.md)
+- [MCP architecture](docs/mcp-architecture.md)
+- [MCP tool catalogue](docs/mcp-tool-catalogue.md)
+- [Agent Skills](docs/agent-skills.md)
+- [Tool access matrix](docs/tool-access-matrix.md)
 - [Roadmap](docs/roadmap.md)
 
 ## Disclaimer

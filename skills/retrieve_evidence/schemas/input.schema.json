@@ -1,0 +1,1 @@
+{"type":"object","required":["case_id"],"properties":{"case_id":{"type":"string","pattern":"^SYN-[A-Z0-9-]+$"},"query":{"type":"string"}},"additionalProperties":false}

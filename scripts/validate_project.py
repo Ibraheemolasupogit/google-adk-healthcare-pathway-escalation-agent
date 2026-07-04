@@ -1,4 +1,4 @@
-"""Validate the Milestone 3 repository scaffold, deterministic data and agent files."""
+"""Validate the Milestone 4 repository scaffold, deterministic data and MCP files."""
 
 from __future__ import annotations
 
@@ -25,7 +25,11 @@ REQUIRED_PATHS = [
     "services/agent_orchestrator.py",
     "services/agent_config.py",
     "services/agent_review.py",
+    "services/skill_executor.py",
     "tools/adk_tools.py",
+    "mcp_servers/common.py",
+    "mcp_servers/registry.py",
+    "mcp_servers/client.py",
     "data/synthetic_cases.json",
     "data/pathway_targets.json",
     "data/evidence/local_evidence.json",
@@ -40,6 +44,12 @@ REQUIRED_PATHS = [
     "docs/agent-instructions.md",
     "docs/live-model-configuration.md",
     "docs/agent-execution-modes.md",
+    "docs/mcp-architecture.md",
+    "docs/mcp-tool-catalogue.md",
+    "docs/agent-skills.md",
+    "docs/mcp-security-model.md",
+    "docs/mcp-local-development.md",
+    "docs/tool-access-matrix.md",
     "security/threat_model.md",
 ]
 
@@ -93,7 +103,7 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
-    print("Milestone 3 project validation passed.")
+    print("Milestone 4 project validation passed.")
     return 0
 
 

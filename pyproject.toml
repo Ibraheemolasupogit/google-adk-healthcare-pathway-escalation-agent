@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Ibraheem Adeleke" }]
-dependencies = ["google-adk>=1.36,<2", "pydantic>=2.7,<3"]
+dependencies = ["google-adk>=1.36,<2", "mcp>=1.28,<2", "pydantic>=2.7,<3"]
 
 [tool.setuptools]
 packages = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services"]
