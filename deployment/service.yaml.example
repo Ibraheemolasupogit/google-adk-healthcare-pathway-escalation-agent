@@ -1,0 +1,30 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: healthcare-pathway-agent-demo
+  annotations:
+    run.googleapis.com/description: "Synthetic NHS pathway escalation demonstration"
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: "3"
+    spec:
+      containers:
+        - image: REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/healthcare-pathway-agent:TAG
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: APP_DEFAULT_EXECUTION_MODE
+              value: "mock-mcp"
+            - name: APP_ENABLE_LIVE_MODE
+              value: "false"
+            - name: APP_ENVIRONMENT_LABEL
+              value: "cloud-run-demo"
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+

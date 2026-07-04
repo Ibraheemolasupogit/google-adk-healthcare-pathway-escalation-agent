@@ -1,4 +1,4 @@
-"""Validate the Milestone 5 repository scaffold, data, MCP and guardrail files."""
+"""Validate the Milestone 7 repository scaffold, data, UI and deployment files."""
 
 from __future__ import annotations
 
@@ -39,6 +39,20 @@ REQUIRED_PATHS = [
     "services/evaluation/reproducibility_evaluator.py",
     "services/evaluation/report_generator.py",
     "services/evaluation/runner.py",
+    "ui/streamlit_app.py",
+    "ui/components.py",
+    "ui/services.py",
+    "ui/config.py",
+    "ui/formatting.py",
+    "ui/state.py",
+    "ui/help_content.py",
+    "ui/health.py",
+    "scripts/verify_deployment.py",
+    "deployment/Dockerfile",
+    "deployment/.dockerignore",
+    "deployment/README.md",
+    "deployment/cloud-run.md",
+    "deployment/service.yaml.example",
     "tools/adk_tools.py",
     "mcp_servers/common.py",
     "mcp_servers/registry.py",
@@ -85,6 +99,13 @@ REQUIRED_PATHS = [
     "docs/evaluation-metrics.md",
     "docs/reproducibility-methodology.md",
     "docs/evaluation-limitations.md",
+    "docs/user-interface.md",
+    "docs/demo-walkthrough.md",
+    "docs/deployment-architecture.md",
+    "docs/cloud-run-readiness.md",
+    "docs/ui-security.md",
+    "docs/video-demo-plan.md",
+    "docs/screenshot-plan.md",
     "docs/evidence/milestone-6/evaluation-summary.md",
     "docs/evidence/milestone-6/metric-summary.csv",
     "docs/evidence/milestone-6/evaluation-manifest.json",
@@ -150,7 +171,7 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
-    print("Milestone 6 project validation passed.")
+    print("Milestone 7 project validation passed.")
     return 0
 
 

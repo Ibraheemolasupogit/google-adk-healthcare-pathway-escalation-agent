@@ -21,6 +21,10 @@ python3 -m app.main evaluate-agents --mode mock-mcp --json
 
 `run-full-evaluation` also checks execution-mode parity for deterministic fields across direct, mock and mock-MCP paths.
 
+## Streamlit UI Default
+
+The Milestone 7 public demonstration UI defaults to `mock-mcp`. Live mode is disabled by default and is not exposed unless separately configured with secure credentials.
+
 ## Review Preparation
 
 `prepare-review --mode mock-mcp` runs the selected execution mode, validates the draft with guardrails, and creates a local `PENDING` human-review record. Approval is never automatic and requires a separate `decide-review` command.

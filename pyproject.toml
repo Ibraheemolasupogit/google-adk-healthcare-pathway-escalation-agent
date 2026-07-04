@@ -10,15 +10,42 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Ibraheem Adeleke" }]
-dependencies = ["google-adk>=1.36,<2", "mcp>=1.28,<2", "pydantic>=2.7,<3"]
+dependencies = [
+    "google-adk>=1.36,<2",
+    "mcp>=1.28,<2",
+    "pydantic>=2.7,<3",
+    "streamlit>=1.37,<2",
+]
 
 [tool.setuptools]
-packages = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services"]
+packages = [
+    "app",
+    "agents",
+    "tools",
+    "mcp_servers",
+    "schemas",
+    "security",
+    "evaluation",
+    "services",
+    "ui",
+]
 
 [tool.ruff]
 target-version = "py311"
 line-length = 100
-src = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services", "scripts", "tests"]
+src = [
+    "app",
+    "agents",
+    "tools",
+    "mcp_servers",
+    "schemas",
+    "security",
+    "evaluation",
+    "services",
+    "scripts",
+    "tests",
+    "ui",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
@@ -26,16 +53,26 @@ select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
 [tool.mypy]
 python_version = "3.11"
 strict = true
-packages = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services"]
+packages = [
+    "app",
+    "agents",
+    "tools",
+    "mcp_servers",
+    "schemas",
+    "security",
+    "evaluation",
+    "services",
+    "ui",
+]
 files = ["scripts", "tests"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=app --cov=agents --cov=tools --cov=mcp_servers --cov=schemas --cov=security --cov=evaluation --cov=services --cov-report=term-missing"
+addopts = "--cov=app --cov=agents --cov=tools --cov=mcp_servers --cov=schemas --cov=security --cov=evaluation --cov=services --cov=ui --cov-report=term-missing"
 
 [tool.coverage.run]
 branch = true
-source = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services"]
+source = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services", "ui"]
 
 [tool.coverage.report]
 fail_under = 0

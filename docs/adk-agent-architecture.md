@@ -17,4 +17,6 @@ Milestone 5 adds a central guardrail pass after draft generation. The automated 
 
 Milestone 6 evaluates mock and mock-MCP agent execution over the synthetic benchmark. The evaluator checks valid structured output, deterministic preservation, local evidence grounding, unsupported-claim avoidance, prohibited-language avoidance and human-review enforcement.
 
-No frontend, Cloud Run deployment or autonomous escalation workflow is implemented in this milestone.
+Milestone 7 exposes mock and mock-MCP execution in the Streamlit demonstration UI. The public default is `mock-mcp`; the UI does not imply that mock output came from Gemini.
+
+Actual Cloud Run deployment, live Gemini validation and autonomous escalation are not implemented in this milestone.

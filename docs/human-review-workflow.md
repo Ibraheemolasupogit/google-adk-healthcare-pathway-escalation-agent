@@ -15,3 +15,5 @@ Supported decisions:
 `APPROVED_FOR_DEMONSTRATION` does not mean clinically approved, operationally approved, submitted, or authenticated.
 
 Milestone 6 adds `evaluate-reviews`, which checks valid transitions, immutable-field protection, review-record integrity detection and `submitted=false` preservation for synthetic review scenarios.
+
+Milestone 7 exposes the backend workflow in Streamlit. Reviewer alias entry is explicit, narrative amendments are limited to approved fields, deterministic fields remain read-only, and records remain in ignored runtime storage.

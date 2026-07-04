@@ -7,3 +7,5 @@ The selected server transport is local stdio. Automated tests and CLI demonstrat
 MCP is an interoperability boundary, not a replacement for the deterministic domain layer.
 
 Milestone 6 uses mock-MCP evaluation to verify that agent execution through the bounded adapter preserves deterministic assessment fields and retrieves only controlled local evidence.
+
+Milestone 7 uses `mock-mcp` as the default UI execution mode so the public demonstration exercises the MCP boundary without Gemini credentials or network calls.

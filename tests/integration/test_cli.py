@@ -202,6 +202,17 @@ def test_cli_run_full_evaluation_and_show_summary_work() -> None:
     assert "Milestone 6 Evaluation Summary" in summary.stdout
 
 
+def test_cli_ui_info_reports_safe_defaults() -> None:
+    result = run_cli("ui-info", "--json")
+
+    assert result.returncode == 0
+    payload = json.loads(result.stdout)
+    assert payload["default_execution_mode"] == "mock-mcp"
+    assert payload["live_mode_enabled"] is False
+    assert payload["synthetic_case_count"] == 15
+    assert payload["demonstration_only"] is True
+
+
 def test_cli_prepare_approve_and_verify_review_work() -> None:
     prepared = run_cli(
         "prepare-review",

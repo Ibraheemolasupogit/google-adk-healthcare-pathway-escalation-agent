@@ -12,3 +12,4 @@ The Milestone 6 evaluation framework is intentionally offline and synthetic.
 
 The project remains a demonstration system for education, competition development and architecture evidence.
 
+Milestone 7 displays these limitations in the public UI and keeps final Kaggle write-up, final screenshots and final video creation out of scope.

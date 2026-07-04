@@ -32,3 +32,4 @@ python3 -m app.main run-full-evaluation --json
 
 `run-full-evaluation` writes ignored runtime artifacts under `artifacts/evaluation/<run_id>/`. The committed Milestone 6 evidence snapshot is under `docs/evidence/milestone-6/`.
 
+Milestone 7 reads the committed snapshot in the Streamlit UI. The public interface does not depend on ignored runtime evaluation artifacts.

@@ -2,11 +2,11 @@
 
 ## Milestone 2 Status
 
-This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces, Google ADK mock orchestration, local MCP-compatible server adapters, reusable Agent Skill metadata, central guardrails, backend human review, automated evaluation and CLI commands. Live Gemini calls, frontend review UI and deployment remain planned.
+This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces, Google ADK mock orchestration, local MCP-compatible server adapters, reusable Agent Skill metadata, central guardrails, backend human review, automated evaluation, a Streamlit demonstration UI and Cloud Run-ready container packaging. Live Gemini verification and actual Cloud Run deployment remain planned.
 
 ## Planned Components
 
-- **User or reviewer interface:** future UI or CLI for submitting synthetic cases and reviewing drafts.
+- **User or reviewer interface:** Streamlit demonstration UI for selecting synthetic cases, viewing deterministic and agent outputs, and applying demonstration review decisions.
 - **Coordinator agent:** controls workflow, delegates tasks, assembles draft outputs, and enforces review routing.
 - **Pathway agent:** identifies pathway type and retrieves the applicable target.
 - **Risk agent:** performs deterministic target, breach, and explainable risk calculations.
@@ -25,7 +25,7 @@ This document describes the planned architecture and the implemented determinist
 - **Audit logging:** records inputs, tool calls, calculations, evidence metadata, validation, and human decisions.
 - **Human approval:** required before finalising any escalation.
 - **Evaluation framework:** measures deterministic correctness, mock-agent preservation, skill behavior, grounding, safety, human-review controls and reproducibility over synthetic benchmark data.
-- **Deployment boundary:** future Cloud Run service boundary with externalised secrets and least-privilege configuration.
+- **Deployment boundary:** Cloud Run-ready container boundary with externalised secrets, non-root runtime and mock-MCP default mode.
 
 ## Planned Flow
 
@@ -39,6 +39,7 @@ This document describes the planned architecture and the implemented determinist
 8. The review agent routes the draft to a human reviewer.
 9. The backend human-review service records approve, amend or reject decisions.
 10. Offline evaluators compare deterministic, agent, skill, evidence, security, review and reproducibility behavior against committed synthetic expected outputs.
+11. The Streamlit UI displays the same synthetic workflow and committed evaluation evidence for public demonstration.
 
 ## Design Principles
 

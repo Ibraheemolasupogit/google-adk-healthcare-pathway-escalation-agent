@@ -42,6 +42,8 @@ from tools.case_tools import get_case_by_id, load_synthetic_cases
 from tools.evidence_tools import load_local_evidence
 from tools.exceptions import CaseNotFoundError, DomainValidationError, PathwayRuleNotFoundError
 from tools.pathway_tools import load_pathway_rules
+from ui.config import SAFETY_BANNER, available_public_modes, load_ui_config
+from ui.services import list_case_options, load_evaluation_evidence
 
 ARTIFACT_DIR = Path("artifacts") / "assessments"
 
@@ -237,6 +239,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     show_eval.add_argument("--run-id", required=True)
     show_eval.add_argument("--json", action="store_true", help="Output JSON.")
+
+    ui_info = subparsers.add_parser("ui-info", help="Show safe UI configuration.")
+    ui_info.add_argument("--json", action="store_true", help="Output JSON.")
     return parser
 
 
@@ -503,6 +508,25 @@ def _run_command(args: argparse.Namespace) -> int:
             _emit(read_json(run_dir / "evaluation-report.json"), True)
         else:
             print((run_dir / "evaluation-summary.md").read_text(encoding="utf-8"))
+        return 0
+
+    if args.command == "ui-info":
+        config = load_ui_config()
+        evidence = load_evaluation_evidence()
+        ui_payload: dict[str, Any] = {
+            "title": config.title,
+            "default_execution_mode": config.default_execution_mode.value,
+            "public_modes": [mode.value for mode in available_public_modes(config)],
+            "live_mode_enabled": config.enable_live_mode,
+            "review_store_path": str(config.review_store_path),
+            "environment_label": config.environment_label,
+            "presentation_mode": config.presentation_mode,
+            "safety_banner": SAFETY_BANNER,
+            "synthetic_case_count": len(list_case_options()),
+            "evaluation_run_id": evidence["benchmark"]["run_id"],
+            "demonstration_only": True,
+        }
+        _emit(ui_payload, args.json)
         return 0
 
     raise ValueError(f"Unsupported command: {args.command}")

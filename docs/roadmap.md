@@ -26,7 +26,7 @@ Broader agent quality evaluation and Kaggle-oriented reporting. Implemented in t
 
 ## Milestone 7
 
-User interface and Cloud Run deployment.
+Demonstration user interface, containerisation and deployment readiness. Implemented with a Streamlit synthetic demo, mock-MCP default mode, human-review controls, committed evaluation evidence display, non-root Docker packaging and Cloud Run-ready documentation. Actual Cloud Run deployment is not performed in this milestone.
 
 ## Milestone 8
 

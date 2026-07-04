@@ -1,4 +1,4 @@
-.PHONY: install format lint type-check test quality run validate-project validate-data assess-samples validate-mcp list-mcp test-mcp validate-skills list-skills test-skills mock-mcp-demo security-eval guardrail-demo review-demo validate-reviews validate-benchmark evaluate-deterministic evaluate-agents evaluate-skills evaluate-evidence evaluate-reviews evaluate-reproducibility evaluate-all refresh-evaluation-evidence
+.PHONY: install format lint type-check test quality run ui verify-ui verify-deployment docker-build docker-run demo validate-project validate-data assess-samples validate-mcp list-mcp test-mcp validate-skills list-skills test-skills mock-mcp-demo security-eval guardrail-demo review-demo validate-reviews validate-benchmark evaluate-deterministic evaluate-agents evaluate-skills evaluate-evidence evaluate-reviews evaluate-reproducibility evaluate-all refresh-evaluation-evidence
 
 PYTHON ?= python
 
@@ -17,10 +17,28 @@ type-check:
 test:
 	pytest
 
-quality: lint type-check test validate-project validate-benchmark security-eval
+quality: lint type-check test validate-project validate-benchmark security-eval verify-deployment
 
 run:
 	$(PYTHON) -m app.main list-cases
+
+ui:
+	streamlit run ui/streamlit_app.py
+
+verify-ui:
+	$(PYTHON) -m app.main ui-info
+
+verify-deployment:
+	$(PYTHON) scripts/verify_deployment.py
+
+docker-build:
+	docker build -f deployment/Dockerfile -t healthcare-pathway-agent:local .
+
+docker-run:
+	docker run --rm -p 8080:8080 -e PORT=8080 healthcare-pathway-agent:local
+
+demo:
+	DEMO_PRESENTATION_MODE=true streamlit run ui/streamlit_app.py
 
 validate-project:
 	$(PYTHON) scripts/validate_project.py
