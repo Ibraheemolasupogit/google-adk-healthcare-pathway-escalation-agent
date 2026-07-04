@@ -2,7 +2,7 @@
 
 ## Project Scope
 
-The project provides deterministic pathway assessment, Google ADK mock orchestration, local MCP interoperability, security guardrails and backend human review for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations and requiring human approval before finalisation.
+The project provides deterministic pathway assessment, Google ADK mock orchestration, local MCP interoperability, security guardrails, backend human review and reproducible evaluation for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations and requiring human approval before finalisation.
 
 ## Goals
 
@@ -11,13 +11,14 @@ The project provides deterministic pathway assessment, Google ADK mock orchestra
 - Keep pathway target and breach calculations deterministic and auditable.
 - Separate retrieved evidence from model inference.
 - Require human review for every escalation output.
+- Provide reproducible offline benchmark evidence for deterministic, agent, skill, evidence, security and review behavior.
 
 ## Non-Goals
 
 - No clinical diagnosis, triage, treatment, or autonomous clinical decision-making.
 - No use of real patient-identifiable data.
 - No production NHS deployment.
-- No frontend, Cloud Run deployment or autonomous escalation in Milestone 4.
+- No frontend, Cloud Run deployment, live model benchmark or autonomous escalation in Milestone 6.
 
 ## Functional Requirements
 
@@ -31,6 +32,7 @@ The project provides deterministic pathway assessment, Google ADK mock orchestra
 - **FR-08:** Record an auditable execution trace.
 - **FR-09:** Detect prompt injection, deterministic overrides, unsafe language, personal-data patterns and review-bypass attempts.
 - **FR-10:** Record explicit backend human-review decisions without claiming authentication or submission.
+- **FR-11:** Validate benchmark datasets and generate reproducible evaluation reports.
 
 ## Non-Functional Requirements
 
@@ -41,6 +43,7 @@ The project provides deterministic pathway assessment, Google ADK mock orchestra
 - **NFR-05:** The system must fail safely.
 - **NFR-06:** The system must not claim clinical decision authority.
 - **NFR-07:** The project must be reproducible from documented instructions.
+- **NFR-08:** Automated evaluation must use synthetic local data only.
 
 ## Assumptions
 
@@ -53,6 +56,7 @@ The project provides deterministic pathway assessment, Google ADK mock orchestra
 
 - Milestone 4 adds local MCP-compatible server adapters and reusable Agent Skills while preserving deterministic values as the source of truth.
 - Milestone 5 adds deterministic guardrails, tamper-evident review hashes and backend approve/amend/reject workflow.
+- Milestone 6 adds offline benchmark datasets, automated evaluators and committed evidence snapshots.
 - Secrets must not be committed.
 - Live Gemini execution requires explicit Google configuration and is not required for tests.
 - All outputs must include `human_review_required`.
@@ -76,6 +80,7 @@ The project provides deterministic pathway assessment, Google ADK mock orchestra
 7. Schemas validate completeness, review state and safety flags.
 8. Human reviewer approves, rejects, or requests changes.
 9. Audit trace records inputs, tool activity, validation results, and review outcome.
+10. Evaluation commands compare outputs with synthetic expected results and write reproducible reports.
 
 ## Input Schema
 

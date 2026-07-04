@@ -17,6 +17,18 @@ from services.agent_orchestrator import (
     validate_agent_configuration,
 )
 from services.assessment_service import assess_case, assess_cases
+from services.evaluation.agent_evaluator import evaluate_agents
+from services.evaluation.benchmark_loader import (
+    load_benchmark_cases,
+    read_json,
+    validate_benchmark,
+)
+from services.evaluation.deterministic_evaluator import evaluate_deterministic
+from services.evaluation.evidence_evaluator import evaluate_evidence
+from services.evaluation.reproducibility_evaluator import evaluate_reproducibility
+from services.evaluation.review_evaluator import evaluate_reviews
+from services.evaluation.runner import ARTIFACT_ROOT, run_full_evaluation
+from services.evaluation.skill_evaluator import evaluate_skills
 from services.guardrail_service import GuardrailService
 from services.human_review_service import (
     HumanReviewService,
@@ -182,6 +194,49 @@ def build_parser() -> argparse.ArgumentParser:
         "run-security-evaluation", help="Run deterministic security evaluation."
     )
     security_eval.add_argument("--json", action="store_true", help="Output JSON.")
+
+    list_benchmark = subparsers.add_parser("list-benchmark-cases", help="List benchmark cases.")
+    list_benchmark.add_argument("--json", action="store_true", help="Output JSON.")
+
+    show_benchmark = subparsers.add_parser("show-benchmark-case", help="Show benchmark case.")
+    show_benchmark.add_argument("--case-id", required=True)
+    show_benchmark.add_argument("--json", action="store_true", help="Output JSON.")
+
+    validate_benchmark_parser = subparsers.add_parser(
+        "validate-benchmark", help="Validate benchmark datasets."
+    )
+    validate_benchmark_parser.add_argument("--json", action="store_true", help="Output JSON.")
+
+    eval_det = subparsers.add_parser(
+        "evaluate-deterministic",
+        help="Evaluate deterministic engine.",
+    )
+    eval_det.add_argument("--json", action="store_true", help="Output JSON.")
+
+    eval_agents = subparsers.add_parser("evaluate-agents", help="Evaluate mock agents.")
+    eval_agents.add_argument("--mode", choices=["mock", "mock-mcp"], required=True)
+    eval_agents.add_argument("--json", action="store_true", help="Output JSON.")
+
+    eval_skills = subparsers.add_parser("evaluate-skills", help="Evaluate Agent Skills.")
+    eval_skills.add_argument("--json", action="store_true", help="Output JSON.")
+
+    eval_evidence = subparsers.add_parser("evaluate-evidence", help="Evaluate evidence grounding.")
+    eval_evidence.add_argument("--json", action="store_true", help="Output JSON.")
+
+    eval_reviews = subparsers.add_parser("evaluate-reviews", help="Evaluate human review.")
+    eval_reviews.add_argument("--json", action="store_true", help="Output JSON.")
+
+    eval_repro = subparsers.add_parser("evaluate-reproducibility", help="Evaluate reproducibility.")
+    eval_repro.add_argument("--json", action="store_true", help="Output JSON.")
+
+    full_eval = subparsers.add_parser("run-full-evaluation", help="Run full evaluation.")
+    full_eval.add_argument("--json", action="store_true", help="Output JSON.")
+
+    show_eval = subparsers.add_parser(
+        "show-evaluation-summary", help="Show generated evaluation summary."
+    )
+    show_eval.add_argument("--run-id", required=True)
+    show_eval.add_argument("--json", action="store_true", help="Output JSON.")
     return parser
 
 
@@ -388,6 +443,67 @@ def _run_command(args: argparse.Namespace) -> int:
         summary = run_security_evaluation()
         _emit(summary.model_dump(mode="json"), args.json)
         return 0 if summary.false_negatives == 0 else 2
+
+    if args.command == "list-benchmark-cases":
+        cases = load_benchmark_cases()
+        _emit([case.model_dump(mode="json") for case in cases], args.json)
+        return 0
+
+    if args.command == "show-benchmark-case":
+        matches = [case for case in load_benchmark_cases() if case.case_id == args.case_id]
+        if not matches:
+            raise ValueError(f"unknown benchmark case: {args.case_id}")
+        _emit(matches[0].model_dump(mode="json"), args.json)
+        return 0
+
+    if args.command == "validate-benchmark":
+        _emit(validate_benchmark(), args.json)
+        return 0
+
+    if args.command == "evaluate-deterministic":
+        deterministic_result = evaluate_deterministic()
+        _emit(deterministic_result.model_dump(mode="json"), args.json)
+        return 0 if deterministic_result.failed_count == 0 else 2
+
+    if args.command == "evaluate-agents":
+        agent_result = evaluate_agents(ExecutionMode(args.mode))
+        _emit(agent_result.model_dump(mode="json"), args.json)
+        return 0 if agent_result.failed_count == 0 else 2
+
+    if args.command == "evaluate-skills":
+        skill_result = evaluate_skills()
+        _emit(skill_result.model_dump(mode="json"), args.json)
+        return 0 if skill_result.failed_count == 0 else 2
+
+    if args.command == "evaluate-evidence":
+        evidence_result = evaluate_evidence()
+        _emit(evidence_result.model_dump(mode="json"), args.json)
+        return 0 if evidence_result.failed_count == 0 else 2
+
+    if args.command == "evaluate-reviews":
+        review_result = evaluate_reviews()
+        _emit(review_result.model_dump(mode="json"), args.json)
+        return 0 if review_result.failed_count == 0 else 2
+
+    if args.command == "evaluate-reproducibility":
+        reproducibility_result = evaluate_reproducibility()
+        _emit(reproducibility_result.model_dump(mode="json"), args.json)
+        return 0 if reproducibility_result.failed_count == 0 else 2
+
+    if args.command == "run-full-evaluation":
+        report, output_dir = run_full_evaluation()
+        payload = report.model_dump(mode="json")
+        payload["output_dir"] = str(output_dir)
+        _emit(payload, args.json)
+        return 0 if not report.failed_case_ids else 2
+
+    if args.command == "show-evaluation-summary":
+        run_dir = ARTIFACT_ROOT / args.run_id
+        if args.json:
+            _emit(read_json(run_dir / "evaluation-report.json"), True)
+        else:
+            print((run_dir / "evaluation-summary.md").read_text(encoding="utf-8"))
+        return 0
 
     raise ValueError(f"Unsupported command: {args.command}")
 

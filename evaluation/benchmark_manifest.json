@@ -1,0 +1,36 @@
+{
+  "benchmark_version": "2026-07-milestone-6-demo-v1",
+  "case_count": 30,
+  "case_distribution": {
+    "CANCER_2WW": 6,
+    "CANCER_62": 6,
+    "CANCER_FDS_28": 6,
+    "RTT_18_WEEK": 6,
+    "UEC_4_HOUR": 6
+  },
+  "created_date": "2026-07-04",
+  "demonstration_only": true,
+  "evaluator_version": "1.0.0",
+  "evidence_data_checksum": "1ce43d28d7f9bf509774c04e4db0da90bbadbccaffcfd6c6b670e2cdb333738b",
+  "expected_output_checksums": {
+    "benchmark_cases": "49e5d173c0986e10302da0cd75a5d681a2de7534bfba913b53da4cae9cad96e0",
+    "evidence_grounding_cases": "20642323b4273d944c4e0b2df89375f371adb5508a2990a403054901a7bb04e7",
+    "expected_agent_outputs": "99745f861c14ea416573a448dc09779f6778c03d86d5c144faacb89cfb0e79b3",
+    "expected_assessments": "7771a79ea7c5d33fbdb0dfb72dc0338171b3254c3c19109e3f6833a5206b98b6",
+    "expected_skill_outputs": "1cd0d4dabadb63ab5ce274900a54b417ee9a862359ea2d38fe27297ca68dd0ec",
+    "review_cases": "f3f32039e9d824191159b019dd8886d076d70e33c0e11f3cd48d8add052b3bde",
+    "security_cases": "9e9735007e07fec11660f9b702ac9fd6bb613b42113c33e6ff2a05b9f4a12a84"
+  },
+  "reproducibility_notes": [
+    "Volatile timestamps, UUIDs, trace IDs, request IDs and durations are normalised before reproducibility hashing."
+  ],
+  "rule_data_checksum": "1daaf768f7d872f10d81fb6bbc7f7344c3037faf1aaeebd2a761a8b59d581d38",
+  "schema_version": "1.0.0",
+  "supported_pathways": [
+    "CANCER_2WW",
+    "CANCER_FDS_28",
+    "CANCER_62",
+    "RTT_18_WEEK",
+    "UEC_4_HOUR"
+  ]
+}

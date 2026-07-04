@@ -1,0 +1,467 @@
+[
+  {
+    "assessment_datetime": "2026-07-08T09:00:00Z",
+    "benchmark_label": "WITHIN",
+    "case_id": "SYN-BENCH-CANCER-2WW-001",
+    "current_stage": "synthetic benchmark within scenario",
+    "next_event_datetime": "2026-07-08T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer Two Week Wait: WITHIN.",
+    "operational_flags": [],
+    "pathway_code": "CANCER_2WW",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-13T06:36:00Z",
+    "benchmark_label": "APPROACHING",
+    "case_id": "SYN-BENCH-CANCER-2WW-002",
+    "current_stage": "synthetic benchmark approaching scenario",
+    "next_event_datetime": "2026-07-13T10:36:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer Two Week Wait: APPROACHING.",
+    "operational_flags": [
+      "capacity-watch"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-15T09:00:00Z",
+    "benchmark_label": "AT",
+    "case_id": "SYN-BENCH-CANCER-2WW-003",
+    "current_stage": "synthetic benchmark at scenario",
+    "next_event_datetime": "2026-07-15T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer Two Week Wait: AT.",
+    "operational_flags": [
+      "target-point"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-16T18:36:00Z",
+    "benchmark_label": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-2WW-004",
+    "current_stage": "synthetic benchmark breached scenario",
+    "next_event_datetime": "2026-07-16T22:36:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer Two Week Wait: BREACHED.",
+    "operational_flags": [
+      "breach-review"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-19T13:48:00Z",
+    "benchmark_label": "SUBSTANTIAL",
+    "case_id": "SYN-BENCH-CANCER-2WW-005",
+    "current_stage": "synthetic benchmark substantial scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer Two Week Wait: SUBSTANTIAL.",
+    "operational_flags": [
+      "substantial-breach",
+      "capacity-watch"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T09:00:00Z",
+    "benchmark_label": "EDGE",
+    "case_id": "SYN-BENCH-CANCER-2WW-006",
+    "current_stage": "synthetic benchmark edge scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer Two Week Wait: EDGE.",
+    "operational_flags": [],
+    "pathway_code": "CANCER_2WW",
+    "priority": "STANDARD",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-15T09:00:00Z",
+    "benchmark_label": "WITHIN",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-001",
+    "current_stage": "synthetic benchmark within scenario",
+    "next_event_datetime": "2026-07-15T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 28-Day Faster Diagnosis: WITHIN.",
+    "operational_flags": [],
+    "pathway_code": "CANCER_FDS_28",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-25T04:12:00Z",
+    "benchmark_label": "APPROACHING",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-002",
+    "current_stage": "synthetic benchmark approaching scenario",
+    "next_event_datetime": "2026-07-25T08:12:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 28-Day Faster Diagnosis: APPROACHING.",
+    "operational_flags": [
+      "capacity-watch"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-29T09:00:00Z",
+    "benchmark_label": "AT",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-003",
+    "current_stage": "synthetic benchmark at scenario",
+    "next_event_datetime": "2026-07-29T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 28-Day Faster Diagnosis: AT.",
+    "operational_flags": [
+      "target-point"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-08-01T04:12:00Z",
+    "benchmark_label": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-004",
+    "current_stage": "synthetic benchmark breached scenario",
+    "next_event_datetime": "2026-08-01T08:12:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 28-Day Faster Diagnosis: BREACHED.",
+    "operational_flags": [
+      "breach-review"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-08-06T18:36:00Z",
+    "benchmark_label": "SUBSTANTIAL",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-005",
+    "current_stage": "synthetic benchmark substantial scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 28-Day Faster Diagnosis: SUBSTANTIAL.",
+    "operational_flags": [
+      "substantial-breach",
+      "capacity-watch"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T09:00:00Z",
+    "benchmark_label": "EDGE",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-006",
+    "current_stage": "synthetic benchmark edge scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 28-Day Faster Diagnosis: EDGE.",
+    "operational_flags": [],
+    "pathway_code": "CANCER_FDS_28",
+    "priority": "STANDARD",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-08-01T09:00:00Z",
+    "benchmark_label": "WITHIN",
+    "case_id": "SYN-BENCH-CANCER-62-001",
+    "current_stage": "synthetic benchmark within scenario",
+    "next_event_datetime": "2026-08-01T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 62-Day: WITHIN.",
+    "operational_flags": [],
+    "pathway_code": "CANCER_62",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-08-23T01:48:00Z",
+    "benchmark_label": "APPROACHING",
+    "case_id": "SYN-BENCH-CANCER-62-002",
+    "current_stage": "synthetic benchmark approaching scenario",
+    "next_event_datetime": "2026-08-23T05:48:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 62-Day: APPROACHING.",
+    "operational_flags": [
+      "capacity-watch"
+    ],
+    "pathway_code": "CANCER_62",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-09-01T09:00:00Z",
+    "benchmark_label": "AT",
+    "case_id": "SYN-BENCH-CANCER-62-003",
+    "current_stage": "synthetic benchmark at scenario",
+    "next_event_datetime": "2026-09-01T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 62-Day: AT.",
+    "operational_flags": [
+      "target-point"
+    ],
+    "pathway_code": "CANCER_62",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-09-07T13:48:00Z",
+    "benchmark_label": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-62-004",
+    "current_stage": "synthetic benchmark breached scenario",
+    "next_event_datetime": "2026-09-07T17:48:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 62-Day: BREACHED.",
+    "operational_flags": [
+      "breach-review"
+    ],
+    "pathway_code": "CANCER_62",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-09-19T23:24:00Z",
+    "benchmark_label": "SUBSTANTIAL",
+    "case_id": "SYN-BENCH-CANCER-62-005",
+    "current_stage": "synthetic benchmark substantial scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 62-Day: SUBSTANTIAL.",
+    "operational_flags": [
+      "substantial-breach",
+      "capacity-watch"
+    ],
+    "pathway_code": "CANCER_62",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T09:00:00Z",
+    "benchmark_label": "EDGE",
+    "case_id": "SYN-BENCH-CANCER-62-006",
+    "current_stage": "synthetic benchmark edge scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for Cancer 62-Day: EDGE.",
+    "operational_flags": [],
+    "pathway_code": "CANCER_62",
+    "priority": "STANDARD",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-09-02T09:00:00Z",
+    "benchmark_label": "WITHIN",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-001",
+    "current_stage": "synthetic benchmark within scenario",
+    "next_event_datetime": "2026-09-02T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for RTT 18-Week: WITHIN.",
+    "operational_flags": [],
+    "pathway_code": "RTT_18_WEEK",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-10-16T11:24:00Z",
+    "benchmark_label": "APPROACHING",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-002",
+    "current_stage": "synthetic benchmark approaching scenario",
+    "next_event_datetime": "2026-10-16T15:24:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for RTT 18-Week: APPROACHING.",
+    "operational_flags": [
+      "capacity-watch"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-11-04T09:00:00Z",
+    "benchmark_label": "AT",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-003",
+    "current_stage": "synthetic benchmark at scenario",
+    "next_event_datetime": "2026-11-04T13:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for RTT 18-Week: AT.",
+    "operational_flags": [
+      "target-point"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-11-16T23:24:00Z",
+    "benchmark_label": "BREACHED",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-004",
+    "current_stage": "synthetic benchmark breached scenario",
+    "next_event_datetime": "2026-11-17T03:24:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for RTT 18-Week: BREACHED.",
+    "operational_flags": [
+      "breach-review"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-12-12T04:12:00Z",
+    "benchmark_label": "SUBSTANTIAL",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-005",
+    "current_stage": "synthetic benchmark substantial scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for RTT 18-Week: SUBSTANTIAL.",
+    "operational_flags": [
+      "substantial-breach",
+      "capacity-watch"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T09:00:00Z",
+    "benchmark_label": "EDGE",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-006",
+    "current_stage": "synthetic benchmark edge scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for RTT 18-Week: EDGE.",
+    "operational_flags": [],
+    "pathway_code": "RTT_18_WEEK",
+    "priority": "STANDARD",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T11:00:00Z",
+    "benchmark_label": "WITHIN",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-001",
+    "current_stage": "synthetic benchmark within scenario",
+    "next_event_datetime": "2026-07-01T15:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for UEC 4-Hour: WITHIN.",
+    "operational_flags": [],
+    "pathway_code": "UEC_4_HOUR",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T12:24:00Z",
+    "benchmark_label": "APPROACHING",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-002",
+    "current_stage": "synthetic benchmark approaching scenario",
+    "next_event_datetime": "2026-07-01T16:24:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for UEC 4-Hour: APPROACHING.",
+    "operational_flags": [
+      "capacity-watch"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "priority": "URGENT",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T13:00:00Z",
+    "benchmark_label": "AT",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-003",
+    "current_stage": "synthetic benchmark at scenario",
+    "next_event_datetime": "2026-07-01T17:00:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for UEC 4-Hour: AT.",
+    "operational_flags": [
+      "target-point"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T13:24:00Z",
+    "benchmark_label": "BREACHED",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-004",
+    "current_stage": "synthetic benchmark breached scenario",
+    "next_event_datetime": "2026-07-01T17:24:00Z",
+    "notes": "Synthetic Milestone 6 benchmark case for UEC 4-Hour: BREACHED.",
+    "operational_flags": [
+      "breach-review"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T14:12:00Z",
+    "benchmark_label": "SUBSTANTIAL",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-005",
+    "current_stage": "synthetic benchmark substantial scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for UEC 4-Hour: SUBSTANTIAL.",
+    "operational_flags": [
+      "substantial-breach",
+      "capacity-watch"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "priority": "HIGH",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  },
+  {
+    "assessment_datetime": "2026-07-01T09:00:00Z",
+    "benchmark_label": "EDGE",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-006",
+    "current_stage": "synthetic benchmark edge scenario",
+    "next_event_datetime": null,
+    "notes": "Synthetic Milestone 6 benchmark case for UEC 4-Hour: EDGE.",
+    "operational_flags": [],
+    "pathway_code": "UEC_4_HOUR",
+    "priority": "STANDARD",
+    "referral_or_arrival_datetime": "2026-07-01T09:00:00Z",
+    "source_system": "synthetic-benchmark-generator",
+    "synthetic": true
+  }
+]

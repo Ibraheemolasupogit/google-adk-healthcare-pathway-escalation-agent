@@ -1,0 +1,392 @@
+[
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-001",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.5,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-002",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "review_status": "PENDING",
+    "risk_level": "MODERATE",
+    "risk_score": 3.7,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-003",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-2WW-004",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-CANCER-2WW-005",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-006",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.5,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-001",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.5,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-002",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "review_status": "PENDING",
+    "risk_level": "MODERATE",
+    "risk_score": 3.7,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-003",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-004",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-005",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-006",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.5,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-001",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.5,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-002",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "review_status": "PENDING",
+    "risk_level": "MODERATE",
+    "risk_score": 3.7,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-003",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-62-004",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-CANCER-62-005",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-006",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.5,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-001",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.0,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-002",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "review_status": "PENDING",
+    "risk_level": "MODERATE",
+    "risk_score": 3.2,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-003",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "review_status": "PENDING",
+    "risk_level": "HIGH",
+    "risk_score": 5.85,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-004",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.85,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-005",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-006",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.0,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-001",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "review_status": "PENDING",
+    "risk_level": "MODERATE",
+    "risk_score": 2.75,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-002",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "review_status": "PENDING",
+    "risk_level": "HIGH",
+    "risk_score": 4.95,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-003",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-004",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-005",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "review_status": "PENDING",
+    "risk_level": "CRITICAL",
+    "risk_score": 8.3,
+    "unsupported_claims": []
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-006",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "review_status": "PENDING",
+    "risk_level": "LOW",
+    "risk_score": 1.5,
+    "unsupported_claims": []
+  }
+]

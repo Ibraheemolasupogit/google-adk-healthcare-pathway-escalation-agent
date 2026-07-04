@@ -1,0 +1,47 @@
+[
+  {
+    "demonstration_only": true,
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "expected_source_label": "Local demonstration evidence pack",
+    "pathway_code": "CANCER_2WW",
+    "validation_required": true
+  },
+  {
+    "demonstration_only": true,
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "expected_source_label": "Local demonstration evidence pack",
+    "pathway_code": "CANCER_FDS_28",
+    "validation_required": true
+  },
+  {
+    "demonstration_only": true,
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "expected_source_label": "Local demonstration evidence pack",
+    "pathway_code": "CANCER_62",
+    "validation_required": true
+  },
+  {
+    "demonstration_only": true,
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "expected_source_label": "Local demonstration evidence pack",
+    "pathway_code": "RTT_18_WEEK",
+    "validation_required": true
+  },
+  {
+    "demonstration_only": true,
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "expected_source_label": "Local demonstration evidence pack",
+    "pathway_code": "UEC_4_HOUR",
+    "validation_required": true
+  }
+]

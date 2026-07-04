@@ -1,0 +1,1364 @@
+[
+  {
+    "case_id": "SYN-BENCH-CANCER-2WW-001",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 604800,
+      "unit": "DAYS",
+      "value": 7.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.5,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to first specialist appointment.",
+      "unit": "DAYS",
+      "value": 14,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 50.0,
+    "expected_variance_from_target": -7.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "pathway_name": "Cancer Two Week Wait",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-2WW-002",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "APPROACHING_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 1028160,
+      "unit": "DAYS",
+      "value": 11.9
+    },
+    "expected_risk_level": "MODERATE",
+    "expected_risk_score": 3.7,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to first specialist appointment.",
+      "unit": "DAYS",
+      "value": 14,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 85.0,
+    "expected_variance_from_target": -2.1,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "pathway_name": "Cancer Two Week Wait",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-2WW-003",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "AT_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 1209600,
+      "unit": "DAYS",
+      "value": 14.0
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 6.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to first specialist appointment.",
+      "unit": "DAYS",
+      "value": 14,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 100.0,
+    "expected_variance_from_target": 0.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "pathway_name": "Cancer Two Week Wait",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-2WW-004",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 1330560,
+      "unit": "DAYS",
+      "value": 15.4
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 7.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to first specialist appointment.",
+      "unit": "DAYS",
+      "value": 14,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 110.0,
+    "expected_variance_from_target": 1.4,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "pathway_name": "Cancer Two Week Wait",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-2WW-005",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "SUBSTANTIALLY_BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 1572480,
+      "unit": "DAYS",
+      "value": 18.2
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 10.0,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to first specialist appointment.",
+      "unit": "DAYS",
+      "value": 14,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 130.0,
+    "expected_variance_from_target": 4.2,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "pathway_name": "Cancer Two Week Wait",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "SUBSTANTIAL_BREACH",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-2WW-006",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 0,
+      "unit": "DAYS",
+      "value": 0.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.5,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to first specialist appointment.",
+      "unit": "DAYS",
+      "value": 14,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 0.0,
+    "expected_variance_from_target": -14.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_2WW",
+    "pathway_name": "Cancer Two Week Wait",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-FDS-28-001",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 1209600,
+      "unit": "DAYS",
+      "value": 14.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.5,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to faster diagnosis standard outcome.",
+      "unit": "DAYS",
+      "value": 28,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 50.0,
+    "expected_variance_from_target": -14.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "pathway_name": "Cancer 28-Day Faster Diagnosis",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-FDS-28-002",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "APPROACHING_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 2056320,
+      "unit": "DAYS",
+      "value": 23.8
+    },
+    "expected_risk_level": "MODERATE",
+    "expected_risk_score": 3.7,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to faster diagnosis standard outcome.",
+      "unit": "DAYS",
+      "value": 28,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 85.0,
+    "expected_variance_from_target": -4.2,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "pathway_name": "Cancer 28-Day Faster Diagnosis",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-FDS-28-003",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "AT_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 2419200,
+      "unit": "DAYS",
+      "value": 28.0
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 6.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to faster diagnosis standard outcome.",
+      "unit": "DAYS",
+      "value": 28,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 100.0,
+    "expected_variance_from_target": 0.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "pathway_name": "Cancer 28-Day Faster Diagnosis",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-FDS-28-004",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 2661120,
+      "unit": "DAYS",
+      "value": 30.8
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 7.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to faster diagnosis standard outcome.",
+      "unit": "DAYS",
+      "value": 28,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 110.0,
+    "expected_variance_from_target": 2.8,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "pathway_name": "Cancer 28-Day Faster Diagnosis",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-FDS-28-005",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "SUBSTANTIALLY_BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 3144960,
+      "unit": "DAYS",
+      "value": 36.4
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 10.0,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to faster diagnosis standard outcome.",
+      "unit": "DAYS",
+      "value": 28,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 130.0,
+    "expected_variance_from_target": 8.4,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "pathway_name": "Cancer 28-Day Faster Diagnosis",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "SUBSTANTIAL_BREACH",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-FDS-28-006",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 0,
+      "unit": "DAYS",
+      "value": 0.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.5,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to faster diagnosis standard outcome.",
+      "unit": "DAYS",
+      "value": 28,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 0.0,
+    "expected_variance_from_target": -28.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_FDS_28",
+    "pathway_name": "Cancer 28-Day Faster Diagnosis",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-62-001",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 2678400,
+      "unit": "DAYS",
+      "value": 31.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.5,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from urgent suspected cancer referral to first treatment milestone.",
+      "unit": "DAYS",
+      "value": 62,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 50.0,
+    "expected_variance_from_target": -31.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "pathway_name": "Cancer 62-Day",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-62-002",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "APPROACHING_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 4553280,
+      "unit": "DAYS",
+      "value": 52.7
+    },
+    "expected_risk_level": "MODERATE",
+    "expected_risk_score": 3.7,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from urgent suspected cancer referral to first treatment milestone.",
+      "unit": "DAYS",
+      "value": 62,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 85.0,
+    "expected_variance_from_target": -9.3,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "pathway_name": "Cancer 62-Day",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-62-003",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "AT_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 5356800,
+      "unit": "DAYS",
+      "value": 62.0
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 6.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from urgent suspected cancer referral to first treatment milestone.",
+      "unit": "DAYS",
+      "value": 62,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 100.0,
+    "expected_variance_from_target": 0.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "pathway_name": "Cancer 62-Day",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-62-004",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 5892480,
+      "unit": "DAYS",
+      "value": 68.2
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 7.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from urgent suspected cancer referral to first treatment milestone.",
+      "unit": "DAYS",
+      "value": 62,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 110.0,
+    "expected_variance_from_target": 6.2,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "pathway_name": "Cancer 62-Day",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-62-005",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "SUBSTANTIALLY_BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 6963840,
+      "unit": "DAYS",
+      "value": 80.6
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 10.0,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from urgent suspected cancer referral to first treatment milestone.",
+      "unit": "DAYS",
+      "value": 62,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 130.0,
+    "expected_variance_from_target": 18.6,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "pathway_name": "Cancer 62-Day",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "SUBSTANTIAL_BREACH",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-CANCER-62-006",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 0,
+      "unit": "DAYS",
+      "value": 0.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.5,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from urgent suspected cancer referral to first treatment milestone.",
+      "unit": "DAYS",
+      "value": 62,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 0.0,
+    "expected_variance_from_target": -62.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "CANCER_62",
+    "pathway_name": "Cancer 62-Day",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-RTT-18-WEEK-001",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 5443200,
+      "unit": "DAYS",
+      "value": 63.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.0,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to treatment milestone.",
+      "unit": "DAYS",
+      "value": 126,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 50.0,
+    "expected_variance_from_target": -63.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "pathway_name": "RTT 18-Week",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-RTT-18-WEEK-002",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "APPROACHING_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 9253440,
+      "unit": "DAYS",
+      "value": 107.1
+    },
+    "expected_risk_level": "MODERATE",
+    "expected_risk_score": 3.2,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to treatment milestone.",
+      "unit": "DAYS",
+      "value": 126,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 85.0,
+    "expected_variance_from_target": -18.9,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "pathway_name": "RTT 18-Week",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-RTT-18-WEEK-003",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "AT_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 10886400,
+      "unit": "DAYS",
+      "value": 126.0
+    },
+    "expected_risk_level": "HIGH",
+    "expected_risk_score": 5.85,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to treatment milestone.",
+      "unit": "DAYS",
+      "value": 126,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 100.0,
+    "expected_variance_from_target": 0.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "pathway_name": "RTT 18-Week",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-RTT-18-WEEK-004",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 11975040,
+      "unit": "DAYS",
+      "value": 138.6
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 6.85,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to treatment milestone.",
+      "unit": "DAYS",
+      "value": 126,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 110.0,
+    "expected_variance_from_target": 12.6,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "pathway_name": "RTT 18-Week",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-RTT-18-WEEK-005",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "SUBSTANTIALLY_BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 14152320,
+      "unit": "DAYS",
+      "value": 163.8
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 10.0,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to treatment milestone.",
+      "unit": "DAYS",
+      "value": 126,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 130.0,
+    "expected_variance_from_target": 37.8,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "pathway_name": "RTT 18-Week",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "SUBSTANTIAL_BREACH",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-RTT-18-WEEK-006",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 0,
+      "unit": "DAYS",
+      "value": 0.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.0,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 125,
+      "description": "Illustrative target from referral to treatment milestone.",
+      "unit": "DAYS",
+      "value": 126,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 0.0,
+    "expected_variance_from_target": -126.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "RTT_18_WEEK",
+    "pathway_name": "RTT 18-Week",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-UEC-4-HOUR-001",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 7200,
+      "unit": "HOURS",
+      "value": 2.0
+    },
+    "expected_risk_level": "MODERATE",
+    "expected_risk_score": 2.75,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 150,
+      "description": "Illustrative target from arrival to urgent and emergency care operational outcome.",
+      "unit": "HOURS",
+      "value": 4,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 50.0,
+    "expected_variance_from_target": -2.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "pathway_name": "UEC 4-Hour",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-UEC-4-HOUR-002",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "APPROACHING_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 12240,
+      "unit": "HOURS",
+      "value": 3.4
+    },
+    "expected_risk_level": "HIGH",
+    "expected_risk_score": 4.95,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 150,
+      "description": "Illustrative target from arrival to urgent and emergency care operational outcome.",
+      "unit": "HOURS",
+      "value": 4,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 85.0,
+    "expected_variance_from_target": -0.6,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "pathway_name": "UEC 4-Hour",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-UEC-4-HOUR-003",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "AT_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 14400,
+      "unit": "HOURS",
+      "value": 4.0
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 6.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 150,
+      "description": "Illustrative target from arrival to urgent and emergency care operational outcome.",
+      "unit": "HOURS",
+      "value": 4,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 100.0,
+    "expected_variance_from_target": 0.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "pathway_name": "UEC 4-Hour",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-UEC-4-HOUR-004",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 15840,
+      "unit": "HOURS",
+      "value": 4.4
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 7.35,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 150,
+      "description": "Illustrative target from arrival to urgent and emergency care operational outcome.",
+      "unit": "HOURS",
+      "value": 4,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 110.0,
+    "expected_variance_from_target": 0.4,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "pathway_name": "UEC 4-Hour",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "NEXT_EVENT_AFTER_TARGET",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-UEC-4-HOUR-005",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "ESCALATE_COORDINATOR",
+      "PRIORITISE_OPERATIONAL_REVIEW",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "BREACHED",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 18720,
+      "unit": "HOURS",
+      "value": 5.2
+    },
+    "expected_risk_level": "CRITICAL",
+    "expected_risk_score": 8.3,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 150,
+      "description": "Illustrative target from arrival to urgent and emergency care operational outcome.",
+      "unit": "HOURS",
+      "value": 4,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 130.0,
+    "expected_variance_from_target": 1.2,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "pathway_name": "UEC 4-Hour",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  },
+  {
+    "case_id": "SYN-BENCH-UEC-4-HOUR-006",
+    "demonstration_only": true,
+    "expected_action_codes": [
+      "VALIDATE_TARGET",
+      "VERIFY_DATA_COMPLETENESS",
+      "CONFIRM_OWNER",
+      "REVIEW_NEXT_EVENT",
+      "RECORD_HUMAN_REVIEW"
+    ],
+    "expected_breach_status": "WITHIN_TARGET",
+    "expected_elapsed_time": {
+      "rounded_to": "2 decimal places",
+      "seconds": 0,
+      "unit": "HOURS",
+      "value": 0.0
+    },
+    "expected_risk_level": "LOW",
+    "expected_risk_score": 1.5,
+    "expected_target": {
+      "comparison_operator": "LESS_THAN_OR_EQUAL",
+      "critical_threshold_percent": 150,
+      "description": "Illustrative target from arrival to urgent and emergency care operational outcome.",
+      "unit": "HOURS",
+      "value": 4,
+      "warning_threshold_percent": 85
+    },
+    "expected_target_consumption_percent": 0.0,
+    "expected_variance_from_target": -4.0,
+    "expected_warning_codes": [
+      "DEMONSTRATION_ONLY",
+      "RULE_VALIDATION_REQUIRED",
+      "MISSING_NEXT_EVENT"
+    ],
+    "human_review_required": true,
+    "pathway_code": "UEC_4_HOUR",
+    "pathway_name": "UEC 4-Hour",
+    "required_risk_factor_codes": [
+      "BREACH_SEVERITY",
+      "TARGET_CONSUMPTION",
+      "PRIORITY",
+      "MISSING_NEXT_EVENT",
+      "OPERATIONAL_FLAGS",
+      "TIME_SENSITIVE_CATEGORY"
+    ]
+  }
+]

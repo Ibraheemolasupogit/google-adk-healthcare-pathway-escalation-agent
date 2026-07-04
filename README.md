@@ -2,7 +2,7 @@
 
 NHS Pathway Escalation and Evidence Agent is a portfolio-quality project for the Kaggle **AI Agents: Intensive Vibe Coding Capstone Project** under the **Agents for Good** track. It currently implements a deterministic domain layer for synthetic NHS operational pathway cases: case validation, demonstration pathway-rule loading, elapsed-time calculation, breach classification, explainable operational risk scoring, operational action generation, audit traces and a CLI.
 
-This repository now includes Google ADK orchestration, local MCP-compatible servers, a bounded MCP adapter, reusable Agent Skills, central security guardrails, deterministic-integrity checks, a backend human-review workflow and offline mock/mock-mcp execution. A graphical human approval interface, frontend, deployment and final Kaggle assets remain planned later milestones.
+This repository now includes Google ADK orchestration, local MCP-compatible servers, a bounded MCP adapter, reusable Agent Skills, central security guardrails, deterministic-integrity checks, a backend human-review workflow, offline mock/mock-mcp execution and a reproducible Milestone 6 evaluation framework. A graphical human approval interface, frontend, deployment and final Kaggle assets remain planned later milestones.
 
 ## Implemented in Milestone 2
 
@@ -31,6 +31,9 @@ This repository now includes Google ADK orchestration, local MCP-compatible serv
 - Backend human-review workflow with `APPROVED_FOR_DEMONSTRATION`, `AMENDMENT_REQUIRED` and `REJECTED` decisions.
 - Deterministic-integrity hashes for assessments, drafts and review records.
 - Synthetic security evaluation dataset and evaluator.
+- Thirty-case synthetic benchmark dataset with six cases per supported pathway.
+- Automated deterministic, mock-agent, mock-MCP, skill, evidence, review, security and reproducibility evaluation.
+- Committed benchmark evidence snapshot under `docs/evidence/milestone-6/`.
 
 ## Planned Later
 
@@ -38,7 +41,7 @@ This repository now includes Google ADK orchestration, local MCP-compatible serv
 - Authenticated reviewer identity and production approval workflow.
 - Human approval user interface.
 - Google Cloud Run deployment.
-- Kaggle submission assets, video and demo materials.
+- Frontend, deployment and final Kaggle submission assets.
 
 ## Problem Statement
 
@@ -96,6 +99,15 @@ python -m app.main list-reviews
 python -m app.main decide-review --review-id REVIEW_ID --decision approve --reviewer-id demo-reviewer
 python -m app.main verify-review-integrity --review-id REVIEW_ID
 python -m app.main run-security-evaluation
+python -m app.main validate-benchmark
+python -m app.main evaluate-deterministic
+python -m app.main evaluate-agents --mode mock
+python -m app.main evaluate-agents --mode mock-mcp
+python -m app.main evaluate-skills
+python -m app.main evaluate-evidence
+python -m app.main evaluate-reviews
+python -m app.main evaluate-reproducibility
+python -m app.main run-full-evaluation
 ```
 
 Most commands support `--json`. Assessment commands can write ignored runtime artifacts under `artifacts/assessments/`.
@@ -115,6 +127,9 @@ make validate-project
 make security-eval
 make guardrail-demo
 make review-demo
+make validate-benchmark
+make evaluate-all
+make refresh-evaluation-evidence
 ```
 
 ## Repository Structure
@@ -147,6 +162,11 @@ tests/        unit, integration and security tests
 - [Human review workflow](docs/human-review-workflow.md)
 - [Review state machine](docs/review-state-machine.md)
 - [Security evaluation](docs/security-evaluation.md)
+- [Evaluation framework](docs/evaluation-framework.md)
+- [Benchmark dataset](docs/benchmark-dataset.md)
+- [Evaluation metrics](docs/evaluation-metrics.md)
+- [Reproducibility methodology](docs/reproducibility-methodology.md)
+- [Evaluation limitations](docs/evaluation-limitations.md)
 - [Data and secret handling](docs/data-and-secret-handling.md)
 - [Deterministic integrity](docs/deterministic-integrity.md)
 - [Tool access matrix](docs/tool-access-matrix.md)

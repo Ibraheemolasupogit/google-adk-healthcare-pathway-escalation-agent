@@ -172,6 +172,36 @@ def test_cli_guardrail_and_security_evaluation_work() -> None:
     assert payload["passed_cases"] == 30
 
 
+def test_cli_evaluation_commands_work() -> None:
+    benchmark = run_cli("validate-benchmark", "--json")
+    deterministic = run_cli("evaluate-deterministic", "--json")
+    agent = run_cli("evaluate-agents", "--mode", "mock", "--json")
+    skills = run_cli("evaluate-skills", "--json")
+    evidence = run_cli("evaluate-evidence", "--json")
+    reviews = run_cli("evaluate-reviews", "--json")
+    reproducibility = run_cli("evaluate-reproducibility", "--json")
+
+    assert benchmark.returncode == 0
+    assert json.loads(benchmark.stdout)["case_count"] == 30
+    for result in [deterministic, agent, skills, evidence, reviews, reproducibility]:
+        assert result.returncode == 0
+        assert json.loads(result.stdout)["failed_count"] == 0
+
+
+def test_cli_run_full_evaluation_and_show_summary_work() -> None:
+    result = run_cli("run-full-evaluation", "--json")
+
+    assert result.returncode == 0
+    payload = json.loads(result.stdout)
+    assert payload["overall_pass_rate"] == 1.0
+    assert payload["failed_case_ids"] == []
+
+    summary = run_cli("show-evaluation-summary", "--run-id", payload["run_id"])
+
+    assert summary.returncode == 0
+    assert "Milestone 6 Evaluation Summary" in summary.stdout
+
+
 def test_cli_prepare_approve_and_verify_review_work() -> None:
     prepared = run_cli(
         "prepare-review",

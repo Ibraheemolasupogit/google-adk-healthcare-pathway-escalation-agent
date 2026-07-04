@@ -2,7 +2,7 @@
 
 ## Milestone 2 Status
 
-This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces, Google ADK mock orchestration, local MCP-compatible server adapters, reusable Agent Skill metadata, central guardrails, backend human review and CLI commands. Live Gemini calls, frontend review UI and deployment remain planned.
+This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces, Google ADK mock orchestration, local MCP-compatible server adapters, reusable Agent Skill metadata, central guardrails, backend human review, automated evaluation and CLI commands. Live Gemini calls, frontend review UI and deployment remain planned.
 
 ## Planned Components
 
@@ -24,7 +24,7 @@ This document describes the planned architecture and the implemented determinist
 - **Human Review Service:** records explicit approve, amend or reject decisions for synthetic demonstration outputs.
 - **Audit logging:** records inputs, tool calls, calculations, evidence metadata, validation, and human decisions.
 - **Human approval:** required before finalising any escalation.
-- **Evaluation framework:** measures correctness, grounding, safety, and reproducibility.
+- **Evaluation framework:** measures deterministic correctness, mock-agent preservation, skill behavior, grounding, safety, human-review controls and reproducibility over synthetic benchmark data.
 - **Deployment boundary:** future Cloud Run service boundary with externalised secrets and least-privilege configuration.
 
 ## Planned Flow
@@ -38,6 +38,7 @@ This document describes the planned architecture and the implemented determinist
 7. Guardrails validate the draft before it can be prepared for human review.
 8. The review agent routes the draft to a human reviewer.
 9. The backend human-review service records approve, amend or reject decisions.
+10. Offline evaluators compare deterministic, agent, skill, evidence, security, review and reproducibility behavior against committed synthetic expected outputs.
 
 ## Design Principles
 

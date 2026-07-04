@@ -1,0 +1,52 @@
+[
+  {
+    "case_id": "REVIEW-PREPARE",
+    "expected_status": "PENDING",
+    "operation": "prepare"
+  },
+  {
+    "case_id": "REVIEW-APPROVE",
+    "expected_status": "APPROVED_FOR_DEMONSTRATION",
+    "operation": "approve"
+  },
+  {
+    "case_id": "REVIEW-AMEND",
+    "expected_status": "AMENDMENT_REQUIRED",
+    "operation": "amend"
+  },
+  {
+    "case_id": "REVIEW-REJECT",
+    "expected_status": "REJECTED",
+    "operation": "reject"
+  },
+  {
+    "case_id": "REVIEW-REPEAT",
+    "expected_blocked": true,
+    "operation": "repeated_approval"
+  },
+  {
+    "case_id": "REVIEW-BLANK",
+    "expected_blocked": true,
+    "operation": "blank_reviewer"
+  },
+  {
+    "case_id": "REVIEW-IMMUTABLE",
+    "expected_blocked": true,
+    "operation": "immutable_amendment"
+  },
+  {
+    "case_id": "REVIEW-DRAFT-TAMPER",
+    "expected_status": "INVALIDATED",
+    "operation": "draft_tamper"
+  },
+  {
+    "case_id": "REVIEW-ASSESSMENT-TAMPER",
+    "expected_status": "INVALIDATED",
+    "operation": "assessment_tamper"
+  },
+  {
+    "case_id": "REVIEW-CORRUPT",
+    "expected_blocked": true,
+    "operation": "corrupt_record"
+  }
+]

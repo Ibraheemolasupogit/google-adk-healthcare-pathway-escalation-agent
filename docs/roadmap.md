@@ -22,7 +22,7 @@ Security guardrails and backend human-in-the-loop workflow. Implemented in this 
 
 ## Milestone 6
 
-Broader agent quality evaluation and Kaggle-oriented reporting.
+Broader agent quality evaluation and Kaggle-oriented reporting. Implemented in this milestone with a 30-case synthetic benchmark, expected-output datasets, automated deterministic/agent/skill/evidence/security/review/reproducibility evaluation and a committed evidence snapshot.
 
 ## Milestone 7
 

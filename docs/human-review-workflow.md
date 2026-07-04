@@ -13,3 +13,5 @@ Supported decisions:
 - `REJECT`: requires a reason and moves to `REJECTED`.
 
 `APPROVED_FOR_DEMONSTRATION` does not mean clinically approved, operationally approved, submitted, or authenticated.
+
+Milestone 6 adds `evaluate-reviews`, which checks valid transitions, immutable-field protection, review-record integrity detection and `submitted=false` preservation for synthetic review scenarios.

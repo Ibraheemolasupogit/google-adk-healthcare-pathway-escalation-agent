@@ -1,0 +1,302 @@
+[
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-001",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "risk_level": "LOW",
+    "risk_score": 1.5
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-002",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "risk_level": "MODERATE",
+    "risk_score": 3.7
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-003",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-2WW-004",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-CANCER-2WW-005",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-2WW-006",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-2WW-001"
+    ],
+    "pathway_code": "CANCER_2WW",
+    "risk_level": "LOW",
+    "risk_score": 1.5
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-001",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "risk_level": "LOW",
+    "risk_score": 1.5
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-002",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "risk_level": "MODERATE",
+    "risk_score": 3.7
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-003",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-004",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-005",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-FDS-28-006",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-FDS-001"
+    ],
+    "pathway_code": "CANCER_FDS_28",
+    "risk_level": "LOW",
+    "risk_score": 1.5
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-001",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "pathway_code": "CANCER_62",
+    "risk_level": "LOW",
+    "risk_score": 1.5
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-002",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "pathway_code": "CANCER_62",
+    "risk_level": "MODERATE",
+    "risk_score": 3.7
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-003",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "pathway_code": "CANCER_62",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-CANCER-62-004",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "pathway_code": "CANCER_62",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-CANCER-62-005",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "pathway_code": "CANCER_62",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-CANCER-62-006",
+    "expected_evidence_ids": [
+      "DEMO-CANCER-62-001"
+    ],
+    "pathway_code": "CANCER_62",
+    "risk_level": "LOW",
+    "risk_score": 1.5
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-001",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "risk_level": "LOW",
+    "risk_score": 1.0
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-002",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "risk_level": "MODERATE",
+    "risk_score": 3.2
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-003",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "risk_level": "HIGH",
+    "risk_score": 5.85
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-004",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.85
+  },
+  {
+    "breach_status": "SUBSTANTIALLY_BREACHED",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-005",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "risk_level": "CRITICAL",
+    "risk_score": 10.0
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-RTT-18-WEEK-006",
+    "expected_evidence_ids": [
+      "DEMO-RTT-001"
+    ],
+    "pathway_code": "RTT_18_WEEK",
+    "risk_level": "LOW",
+    "risk_score": 1.0
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-001",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "risk_level": "MODERATE",
+    "risk_score": 2.75
+  },
+  {
+    "breach_status": "APPROACHING_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-002",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "risk_level": "HIGH",
+    "risk_score": 4.95
+  },
+  {
+    "breach_status": "AT_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-003",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "risk_level": "CRITICAL",
+    "risk_score": 6.35
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-004",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "risk_level": "CRITICAL",
+    "risk_score": 7.35
+  },
+  {
+    "breach_status": "BREACHED",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-005",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "risk_level": "CRITICAL",
+    "risk_score": 8.3
+  },
+  {
+    "breach_status": "WITHIN_TARGET",
+    "case_id": "SYN-BENCH-UEC-4-HOUR-006",
+    "expected_evidence_ids": [
+      "DEMO-UEC-001"
+    ],
+    "pathway_code": "UEC_4_HOUR",
+    "risk_level": "LOW",
+    "risk_score": 1.5
+  }
+]

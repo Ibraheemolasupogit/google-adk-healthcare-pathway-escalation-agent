@@ -16,3 +16,5 @@ The pipeline checks:
 Severities are `INFO`, `WARNING` and `BLOCKING`. A `BLOCKING` finding prevents a draft from being treated as safe for human review.
 
 The checks are pragmatic deterministic rules, not a complete prompt-injection or personal-data detection system.
+
+Milestone 6 includes guardrail results in the full evaluation report with precision, recall, F1, blocking-case pass rate and category-level results for the controlled synthetic security dataset.

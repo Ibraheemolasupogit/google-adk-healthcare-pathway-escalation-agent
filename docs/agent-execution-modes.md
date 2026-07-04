@@ -12,6 +12,15 @@ Use existing Milestone 2 commands such as `assess-case` and `assess-all`. No mod
 
 `agent-assess --mode mock-mcp` exercises the approved local MCP servers through the bounded in-memory adapter. It requires no Gemini credentials and preserves deterministic values.
 
+Milestone 6 evaluates both mock modes with:
+
+```bash
+python3 -m app.main evaluate-agents --mode mock --json
+python3 -m app.main evaluate-agents --mode mock-mcp --json
+```
+
+`run-full-evaluation` also checks execution-mode parity for deterministic fields across direct, mock and mock-MCP paths.
+
 ## Review Preparation
 
 `prepare-review --mode mock-mcp` runs the selected execution mode, validates the draft with guardrails, and creates a local `PENDING` human-review record. Approval is never automatic and requires a separate `decide-review` command.

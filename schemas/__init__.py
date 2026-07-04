@@ -28,6 +28,19 @@ from schemas.assessment import (
 )
 from schemas.case import PathwayCategory, PathwayCode, Priority, SyntheticPathwayCase
 from schemas.escalation import EscalationRecommendation
+from schemas.evaluation import (
+    AgentEvaluationResult,
+    DeterministicEvaluationResult,
+    EvaluationCaseResult,
+    EvaluationManifest,
+    EvaluationMetric,
+    EvaluationReport,
+    EvaluationSuiteResult,
+    EvidenceGroundingResult,
+    ReproducibilityResult,
+    ReviewEvaluationResult,
+    SkillEvaluationResult,
+)
 from schemas.mcp import (
     MCPInvocation,
     MCPInvocationResult,
@@ -63,6 +76,7 @@ from schemas.security import (
 __all__ = [
     "ActionPriority",
     "AgentDraft",
+    "AgentEvaluationResult",
     "AgentExecutionResult",
     "AgentName",
     "AgentRequest",
@@ -72,7 +86,14 @@ __all__ = [
     "AuditEvent",
     "BreachAssessment",
     "BreachStatus",
+    "DeterministicEvaluationResult",
     "EscalationRecommendation",
+    "EvaluationCaseResult",
+    "EvaluationManifest",
+    "EvaluationMetric",
+    "EvaluationReport",
+    "EvaluationSuiteResult",
+    "EvidenceGroundingResult",
     "ExecutionMode",
     "GuardrailCategory",
     "GuardrailFinding",
@@ -96,6 +117,8 @@ __all__ = [
     "PathwayRule",
     "Priority",
     "RecommendedAction",
+    "ReproducibilityResult",
+    "ReviewEvaluationResult",
     "ReviewFinding",
     "ReviewHistoryEntry",
     "ReviewIntegrityMetadata",
@@ -108,6 +131,7 @@ __all__ = [
     "SecurityEvaluationResult",
     "SecurityEvaluationSummary",
     "SkillDefinition",
+    "SkillEvaluationResult",
     "SkillExecutionRequest",
     "SkillExecutionResult",
     "SkillExecutionStep",

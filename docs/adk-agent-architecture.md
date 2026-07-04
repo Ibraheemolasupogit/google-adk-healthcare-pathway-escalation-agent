@@ -15,4 +15,6 @@ Mock execution mode exercises the same schemas, tools and review process without
 
 Milestone 5 adds a central guardrail pass after draft generation. The automated Review Agent remains a safety and consistency reviewer only; it cannot create human approval. Human decisions are recorded by the separate backend Human Review Service.
 
+Milestone 6 evaluates mock and mock-MCP agent execution over the synthetic benchmark. The evaluator checks valid structured output, deterministic preservation, local evidence grounding, unsupported-claim avoidance, prohibited-language avoidance and human-review enforcement.
+
 No frontend, Cloud Run deployment or autonomous escalation workflow is implemented in this milestone.

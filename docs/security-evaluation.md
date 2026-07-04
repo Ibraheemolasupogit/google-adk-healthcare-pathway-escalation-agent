@@ -11,3 +11,5 @@ python3 -m app.main run-security-evaluation --json
 ```
 
 The evaluator does not call Gemini and does not use network access. It reports pass rate, false positives and false negatives.
+
+Milestone 6 includes the same security evaluator in `run-full-evaluation` and records precision, recall, F1, blocking-case pass rate and category-level results in `docs/evidence/milestone-6/metric-summary.csv`.

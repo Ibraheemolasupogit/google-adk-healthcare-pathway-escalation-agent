@@ -30,6 +30,15 @@ REQUIRED_PATHS = [
     "services/security_evaluator.py",
     "services/security_utils.py",
     "services/skill_executor.py",
+    "services/evaluation/benchmark_loader.py",
+    "services/evaluation/deterministic_evaluator.py",
+    "services/evaluation/agent_evaluator.py",
+    "services/evaluation/skill_evaluator.py",
+    "services/evaluation/evidence_evaluator.py",
+    "services/evaluation/review_evaluator.py",
+    "services/evaluation/reproducibility_evaluator.py",
+    "services/evaluation/report_generator.py",
+    "services/evaluation/runner.py",
     "tools/adk_tools.py",
     "mcp_servers/common.py",
     "mcp_servers/registry.py",
@@ -43,6 +52,14 @@ REQUIRED_PATHS = [
     "schemas/agent.py",
     "schemas/review.py",
     "schemas/security.py",
+    "schemas/evaluation.py",
+    "evaluation/benchmark_cases.json",
+    "evaluation/expected_assessments.json",
+    "evaluation/expected_agent_outputs.json",
+    "evaluation/expected_skill_outputs.json",
+    "evaluation/evidence_grounding_cases.json",
+    "evaluation/review_cases.json",
+    "evaluation/benchmark_manifest.json",
     "evaluation/security_cases.json",
     "docs/risk-scoring-methodology.md",
     "docs/deterministic-assessment-workflow.md",
@@ -63,6 +80,16 @@ REQUIRED_PATHS = [
     "docs/security-evaluation.md",
     "docs/data-and-secret-handling.md",
     "docs/deterministic-integrity.md",
+    "docs/evaluation-framework.md",
+    "docs/benchmark-dataset.md",
+    "docs/evaluation-metrics.md",
+    "docs/reproducibility-methodology.md",
+    "docs/evaluation-limitations.md",
+    "docs/evidence/milestone-6/evaluation-summary.md",
+    "docs/evidence/milestone-6/metric-summary.csv",
+    "docs/evidence/milestone-6/evaluation-manifest.json",
+    "docs/evidence/milestone-6/benchmark-summary.json",
+    "docs/evidence/milestone-6/limitations.md",
     "security/threat_model.md",
 ]
 
@@ -79,6 +106,9 @@ def validate_json_files() -> list[str]:
         "data/synthetic_cases.json",
         "data/pathway_targets.json",
         "evaluation/security_cases.json",
+        "evaluation/benchmark_cases.json",
+        "evaluation/expected_assessments.json",
+        "evaluation/benchmark_manifest.json",
     ]:
         try:
             json.loads((PROJECT_ROOT / path).read_text(encoding="utf-8"))
@@ -120,7 +150,7 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
-    print("Milestone 5 project validation passed.")
+    print("Milestone 6 project validation passed.")
     return 0
 
 

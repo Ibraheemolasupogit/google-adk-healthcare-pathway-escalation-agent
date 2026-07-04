@@ -35,6 +35,7 @@ from services.agent_config import (
     validate_live_configuration,
 )
 from services.agent_review import review_agent_draft
+from services.assessment_service import assess_case
 from services.guardrail_service import GuardrailService
 
 MAX_WORKFLOW_STEPS = 12
@@ -102,12 +103,15 @@ class AgentOrchestrator:
                 {"pathway_code": case.pathway_code.value},
             )
             rule = get_pathway_rule(case.pathway_code)
-            assessment_payload = mcp_client.call_tool(
-                "pathway-rules",
-                "run_pathway_assessment",
-                {"case_id": case.case_id},
-            )
-            assessment = PathwayAssessment.model_validate(assessment_payload["assessment"])
+            if request.case is not None:
+                assessment = assess_case(case)
+            else:
+                assessment_payload = mcp_client.call_tool(
+                    "pathway-rules",
+                    "run_pathway_assessment",
+                    {"case_id": case.case_id},
+                )
+                assessment = PathwayAssessment.model_validate(assessment_payload["assessment"])
             self.tool_invocations.extend(_mcp_to_agent_invocations(mcp_client))
             mcp_invocation_count = len(mcp_client.invocations)
             _ = rule_payload
@@ -122,9 +126,7 @@ class AgentOrchestrator:
                 AgentName.PATHWAY,
                 "run_deterministic_assessment",
                 {"case_id": case.case_id},
-                lambda: __import__(
-                    "services.assessment_service", fromlist=["assess_case"]
-                ).assess_case(case),
+                lambda: assess_case(case),
             )
         self._record_step(
             AgentName.PATHWAY,

@@ -1,3 +1,3 @@
-# Evaluation
+# Evaluation Data
 
-This directory contains placeholder fixtures and an evaluator boundary for future automated evaluation. Milestone 1 does not implement scoring logic.
+Milestone 6 benchmark data is synthetic and generated from local demonstration pathway rules. Expected assessments are derived from the deterministic assessment service and checked by SHA-256 manifest entries.
