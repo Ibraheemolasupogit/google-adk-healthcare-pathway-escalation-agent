@@ -83,3 +83,15 @@
 - **Threat:** A caller attempts to load arbitrary skill directories or modified metadata.
 - **Mitigation:** Static approved skill names, metadata validation, local schema files and structured execution results.
 - **Residual risk:** Repository write access can still alter local assets and should be protected through source control review.
+
+## Fabricated Human Approval
+
+- **Threat:** A model, tool, skill or MCP output claims that a draft is approved or submitted.
+- **Mitigation:** Only the backend Human Review Service can transition a review from `PENDING`; guardrails detect review-bypass and autonomous-action language; records keep `submitted=false` and `authenticated_identity=false`.
+- **Residual risk:** Reviewer identity is demonstration metadata only and is not authenticated in this milestone.
+
+## Review Record Tampering
+
+- **Threat:** A stored review record, draft or deterministic assessment is edited after preparation.
+- **Mitigation:** Canonical JSON and SHA-256 hashes are verified before decisions; failed verification marks a review `INVALIDATED` and blocks approval.
+- **Residual risk:** This is tamper-evident local metadata, not a digital signature or production audit system.

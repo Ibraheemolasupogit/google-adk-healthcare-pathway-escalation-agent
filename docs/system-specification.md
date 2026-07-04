@@ -2,7 +2,7 @@
 
 ## Project Scope
 
-The project provides deterministic pathway assessment, Google ADK mock orchestration and local MCP interoperability for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations and requiring human approval before finalisation.
+The project provides deterministic pathway assessment, Google ADK mock orchestration, local MCP interoperability, security guardrails and backend human review for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations and requiring human approval before finalisation.
 
 ## Goals
 
@@ -29,6 +29,8 @@ The project provides deterministic pathway assessment, Google ADK mock orchestra
 - **FR-06:** Generate recommended operational actions.
 - **FR-07:** Require human approval before finalising an escalation.
 - **FR-08:** Record an auditable execution trace.
+- **FR-09:** Detect prompt injection, deterministic overrides, unsafe language, personal-data patterns and review-bypass attempts.
+- **FR-10:** Record explicit backend human-review decisions without claiming authentication or submission.
 
 ## Non-Functional Requirements
 
@@ -50,6 +52,7 @@ The project provides deterministic pathway assessment, Google ADK mock orchestra
 ## Constraints
 
 - Milestone 4 adds local MCP-compatible server adapters and reusable Agent Skills while preserving deterministic values as the source of truth.
+- Milestone 5 adds deterministic guardrails, tamper-evident review hashes and backend approve/amend/reject workflow.
 - Secrets must not be committed.
 - Live Gemini execution requires explicit Google configuration and is not required for tests.
 - All outputs must include `human_review_required`.
@@ -118,6 +121,7 @@ The final assessment and escalation schemas include:
 - Escalations must not be sent automatically.
 - Review status must be recorded.
 - Unsupported claims must be surfaced to the reviewer.
+- Human-review status `APPROVED_FOR_DEMONSTRATION` is not clinical, operational or submission approval.
 
 ## Auditability Requirements
 

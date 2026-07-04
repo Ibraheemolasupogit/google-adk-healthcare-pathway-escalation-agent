@@ -2,7 +2,7 @@
 
 ## Milestone 2 Status
 
-This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces, Google ADK mock orchestration, local MCP-compatible server adapters, reusable Agent Skill metadata and CLI commands. Live Gemini calls, frontend review UI and deployment remain planned.
+This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces, Google ADK mock orchestration, local MCP-compatible server adapters, reusable Agent Skill metadata, central guardrails, backend human review and CLI commands. Live Gemini calls, frontend review UI and deployment remain planned.
 
 ## Planned Components
 
@@ -21,6 +21,7 @@ This document describes the planned architecture and the implemented determinist
 - **Deterministic services:** implement Milestone 2 assessment and risk logic without LLM or external API calls.
 - **ADK orchestration layer:** defines coordinator, pathway, risk, evidence, escalation and review agents with controlled local tools.
 - **Guardrails:** protect against personal data, prompt injection, unsupported claims, unsafe output, and autonomous escalation.
+- **Human Review Service:** records explicit approve, amend or reject decisions for synthetic demonstration outputs.
 - **Audit logging:** records inputs, tool calls, calculations, evidence metadata, validation, and human decisions.
 - **Human approval:** required before finalising any escalation.
 - **Evaluation framework:** measures correctness, grounding, safety, and reproducibility.
@@ -34,8 +35,9 @@ This document describes the planned architecture and the implemented determinist
 4. Tools or MCP-compatible servers provide controlled case data, pathway targets and evidence.
 5. Structured schemas validate each output.
 6. Audit logging records the execution trace.
-7. The review agent routes the draft to a human reviewer.
-8. Human approval is required before finalisation.
+7. Guardrails validate the draft before it can be prepared for human review.
+8. The review agent routes the draft to a human reviewer.
+9. The backend human-review service records approve, amend or reject decisions.
 
 ## Design Principles
 

@@ -21,6 +21,7 @@ from schemas.mcp import (
 from tools.exceptions import DomainValidationError
 
 from services.agent_orchestrator import run_agent_assessment
+from services.guardrail_service import GuardrailService
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = PROJECT_ROOT / "skills"
@@ -68,6 +69,9 @@ class SkillExecutor:
             execution_mode=ExecutionMode.MOCK_MCP,
         )
         output = self._run_skill(skill_name, case_id)
+        guardrail_result = GuardrailService().check_text(json.dumps(output, sort_keys=True))
+        if not guardrail_result.passed:
+            raise DomainValidationError("skill output failed guardrail validation")
         validation = SkillValidationResult(valid=True, findings=[])
         return SkillExecutionResult(
             request_id=request.request_id,

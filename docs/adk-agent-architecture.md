@@ -13,4 +13,6 @@ Each agent is built with `google.adk.agents.Agent` and controlled `FunctionTool`
 
 Mock execution mode exercises the same schemas, tools and review process without calling Gemini. `mock-mcp` mode routes case, pathway and evidence access through the bounded local MCP client so the ADK workflow can validate server boundaries while preserving deterministic outputs. Live mode is configuration-gated and must not run without credentials.
 
+Milestone 5 adds a central guardrail pass after draft generation. The automated Review Agent remains a safety and consistency reviewer only; it cannot create human approval. Human decisions are recorded by the separate backend Human Review Service.
+
 No frontend, Cloud Run deployment or autonomous escalation workflow is implemented in this milestone.

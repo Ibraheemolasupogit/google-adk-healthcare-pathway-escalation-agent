@@ -1,4 +1,4 @@
-"""Validate the Milestone 4 repository scaffold, deterministic data and MCP files."""
+"""Validate the Milestone 5 repository scaffold, data, MCP and guardrail files."""
 
 from __future__ import annotations
 
@@ -25,6 +25,10 @@ REQUIRED_PATHS = [
     "services/agent_orchestrator.py",
     "services/agent_config.py",
     "services/agent_review.py",
+    "services/guardrail_service.py",
+    "services/human_review_service.py",
+    "services/security_evaluator.py",
+    "services/security_utils.py",
     "services/skill_executor.py",
     "tools/adk_tools.py",
     "mcp_servers/common.py",
@@ -37,6 +41,9 @@ REQUIRED_PATHS = [
     "schemas/assessment.py",
     "schemas/escalation.py",
     "schemas/agent.py",
+    "schemas/review.py",
+    "schemas/security.py",
+    "evaluation/security_cases.json",
     "docs/risk-scoring-methodology.md",
     "docs/deterministic-assessment-workflow.md",
     "docs/data-dictionary.md",
@@ -50,6 +57,12 @@ REQUIRED_PATHS = [
     "docs/mcp-security-model.md",
     "docs/mcp-local-development.md",
     "docs/tool-access-matrix.md",
+    "docs/human-review-workflow.md",
+    "docs/guardrail-architecture.md",
+    "docs/review-state-machine.md",
+    "docs/security-evaluation.md",
+    "docs/data-and-secret-handling.md",
+    "docs/deterministic-integrity.md",
     "security/threat_model.md",
 ]
 
@@ -62,7 +75,11 @@ def validate_required_paths() -> list[str]:
 def validate_json_files() -> list[str]:
     """Return JSON parsing errors for controlled data files."""
     errors: list[str] = []
-    for path in ["data/synthetic_cases.json", "data/pathway_targets.json"]:
+    for path in [
+        "data/synthetic_cases.json",
+        "data/pathway_targets.json",
+        "evaluation/security_cases.json",
+    ]:
         try:
             json.loads((PROJECT_ROOT / path).read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
@@ -103,7 +120,7 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
-    print("Milestone 4 project validation passed.")
+    print("Milestone 5 project validation passed.")
     return 0
 
 

@@ -18,11 +18,11 @@ Tools, MCP interoperability and Agent Skills. Implemented in this milestone with
 
 ## Milestone 5
 
-Security guardrails and human-in-the-loop workflow.
+Security guardrails and backend human-in-the-loop workflow. Implemented in this milestone with deterministic guardrail checks, review-state enforcement, review hashes and synthetic security evaluation.
 
 ## Milestone 6
 
-Evaluation dataset and automated evaluation.
+Broader agent quality evaluation and Kaggle-oriented reporting.
 
 ## Milestone 7
 

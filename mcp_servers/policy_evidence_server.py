@@ -6,6 +6,7 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 from schemas.case import PathwayCode
+from services.guardrail_service import GuardrailService
 from tools.evidence_tools import (
     get_local_evidence_by_id,
     load_local_evidence,
@@ -32,27 +33,31 @@ def list_evidence() -> dict[str, Any]:
 def get_evidence(evidence_id: str) -> dict[str, Any]:
     """Return one controlled evidence record."""
     validate_no_path_traversal(evidence_id)
-    return with_metadata(
-        {"evidence": get_local_evidence_by_id(evidence_id).model_dump(mode="json")}
-    )
+    doc = get_local_evidence_by_id(evidence_id)
+    result = GuardrailService().check_evidence(doc)
+    if not result.passed:
+        raise ValueError("evidence guardrail validation failed")
+    return with_metadata({"evidence": doc.model_dump(mode="json")})
 
 
 def get_evidence_for_pathway(pathway_code: str) -> dict[str, Any]:
     """Return controlled evidence for one pathway."""
-    return with_metadata(
-        {
-            "evidence": [
-                doc.model_dump(mode="json")
-                for doc in retrieve_local_evidence(PathwayCode(pathway_code))
-            ]
-        }
-    )
+    docs = retrieve_local_evidence(PathwayCode(pathway_code))
+    for doc in docs:
+        result = GuardrailService().check_evidence(doc)
+        if not result.passed:
+            raise ValueError("evidence guardrail validation failed")
+    return with_metadata({"evidence": [doc.model_dump(mode="json") for doc in docs]})
 
 
 def search_evidence(pathway_code: str, query: str = "") -> dict[str, Any]:
     """Search local evidence by pathway and optional text query."""
     validate_input_size({"pathway_code": pathway_code, "query": query})
     docs = retrieve_local_evidence(PathwayCode(pathway_code))
+    for doc in docs:
+        result = GuardrailService().check_evidence(doc)
+        if not result.passed:
+            raise ValueError("evidence guardrail validation failed")
     if query:
         q = query.lower()
         docs = [doc for doc in docs if q in doc.title.lower() or q in doc.summary.lower()]

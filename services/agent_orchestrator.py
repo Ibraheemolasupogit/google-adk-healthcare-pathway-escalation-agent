@@ -19,7 +19,9 @@ from schemas.agent import (
     AgentToolInvocation,
     ExecutionMode,
     LocalEvidenceDocument,
+    ReviewFinding,
     ReviewResult,
+    ReviewSeverity,
 )
 from schemas.assessment import PathwayAssessment, ReviewStatus
 from tools.case_tools import get_case_by_id
@@ -33,6 +35,7 @@ from services.agent_config import (
     validate_live_configuration,
 )
 from services.agent_review import review_agent_draft
+from services.guardrail_service import GuardrailService
 
 MAX_WORKFLOW_STEPS = 12
 MAX_TOOL_CALLS = 16
@@ -181,6 +184,25 @@ class AgentOrchestrator:
         )
 
         review_result = review_agent_draft(draft.model_dump(mode="json"), assessment)
+        guardrail_result = GuardrailService().check_draft(draft, assessment)
+        if not guardrail_result.safe_for_human_review:
+            guardrail_findings = [
+                ReviewFinding(
+                    finding_code=finding.category.value,
+                    severity=ReviewSeverity.ERROR,
+                    message=finding.message,
+                    field=finding.field,
+                )
+                for finding in guardrail_result.findings
+            ]
+            review_result = ReviewResult(
+                safe_for_human_review=False,
+                findings=[*review_result.findings, *guardrail_findings],
+                validation_passed=False,
+                prohibited_language_detected=review_result.prohibited_language_detected,
+                unsupported_claims_detected=True,
+                review_status=ReviewStatus.PENDING,
+            )
         self._record_step(
             AgentName.REVIEW,
             "Validated draft for safe presentation to a human reviewer.",

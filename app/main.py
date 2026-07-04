@@ -11,12 +11,20 @@ from agents.registry import describe_agents
 from mcp_servers.client import BoundedMCPClient
 from mcp_servers.registry import get_server_definition, list_server_definitions
 from schemas.agent import ExecutionMode
+from schemas.review import HumanReviewDecision
 from services.agent_orchestrator import (
     run_agent_assessment,
     validate_agent_configuration,
 )
 from services.assessment_service import assess_case, assess_cases
+from services.guardrail_service import GuardrailService
+from services.human_review_service import (
+    HumanReviewService,
+    ReviewStore,
+    load_amendments_from_file,
+)
 from services.risk_engine import assign_risk_level
+from services.security_evaluator import run_security_evaluation
 from services.skill_executor import execute_skill, list_skill_definitions
 from tools.case_tools import get_case_by_id, load_synthetic_cases
 from tools.evidence_tools import load_local_evidence
@@ -122,6 +130,58 @@ def build_parser() -> argparse.ArgumentParser:
     run_skill.add_argument("--skill", required=True)
     run_skill.add_argument("--case-id", required=True)
     run_skill.add_argument("--json", action="store_true", help="Output JSON.")
+
+    guardrail_input = subparsers.add_parser(
+        "guardrail-check-input", help="Run guardrails against free text."
+    )
+    guardrail_input.add_argument("--text", required=True)
+    guardrail_input.add_argument("--json", action="store_true", help="Output JSON.")
+
+    guardrail_case = subparsers.add_parser(
+        "guardrail-check-case", help="Run guardrails against a synthetic case."
+    )
+    guardrail_case.add_argument("--case-id", required=True)
+    guardrail_case.add_argument("--json", action="store_true", help="Output JSON.")
+
+    guardrail_evidence = subparsers.add_parser(
+        "guardrail-check-evidence", help="Run guardrails against local evidence."
+    )
+    guardrail_evidence.add_argument("--evidence-id", required=True)
+    guardrail_evidence.add_argument("--json", action="store_true", help="Output JSON.")
+
+    prepare_review = subparsers.add_parser("prepare-review", help="Prepare a human review.")
+    prepare_review.add_argument("--case-id", required=True)
+    prepare_review.add_argument(
+        "--mode",
+        choices=[mode.value for mode in ExecutionMode],
+        default=ExecutionMode.MOCK_MCP.value,
+    )
+    prepare_review.add_argument("--json", action="store_true", help="Output JSON.")
+
+    list_reviews = subparsers.add_parser("list-reviews", help="List local review records.")
+    list_reviews.add_argument("--json", action="store_true", help="Output JSON.")
+
+    show_review = subparsers.add_parser("show-review", help="Show one review record.")
+    show_review.add_argument("--review-id", required=True)
+    show_review.add_argument("--json", action="store_true", help="Output JSON.")
+
+    decide_review = subparsers.add_parser("decide-review", help="Apply a human review decision.")
+    decide_review.add_argument("--review-id", required=True)
+    decide_review.add_argument("--decision", choices=["approve", "amend", "reject"], required=True)
+    decide_review.add_argument("--reviewer-id", required=True)
+    decide_review.add_argument("--comments")
+    decide_review.add_argument("--reason")
+    decide_review.add_argument("--amendment-file")
+    decide_review.add_argument("--json", action="store_true", help="Output JSON.")
+
+    verify_review = subparsers.add_parser("verify-review-integrity", help="Verify a review record.")
+    verify_review.add_argument("--review-id", required=True)
+    verify_review.add_argument("--json", action="store_true", help="Output JSON.")
+
+    security_eval = subparsers.add_parser(
+        "run-security-evaluation", help="Run deterministic security evaluation."
+    )
+    security_eval.add_argument("--json", action="store_true", help="Output JSON.")
     return parser
 
 
@@ -257,15 +317,77 @@ def _run_command(args: argparse.Namespace) -> int:
         return 0
 
     if args.command == "describe-skill":
-        matches = [skill for skill in list_skill_definitions() if skill.name == args.skill]
-        if not matches:
+        skill_matches = [skill for skill in list_skill_definitions() if skill.name == args.skill]
+        if not skill_matches:
             raise ValueError(f"unknown skill: {args.skill}")
-        _emit(matches[0].model_dump(mode="json"), args.json)
+        _emit(skill_matches[0].model_dump(mode="json"), args.json)
         return 0
 
     if args.command == "run-skill":
         _emit(execute_skill(args.skill, args.case_id).model_dump(mode="json"), args.json)
         return 0
+
+    if args.command == "guardrail-check-input":
+        guardrail_result = GuardrailService().check_text(args.text)
+        _emit(guardrail_result.model_dump(mode="json"), args.json)
+        return 0 if guardrail_result.passed else 2
+
+    if args.command == "guardrail-check-case":
+        case = get_case_by_id(args.case_id)
+        guardrail_result = GuardrailService().check_case_payload(case.model_dump(mode="json"))
+        _emit(guardrail_result.model_dump(mode="json"), args.json)
+        return 0 if guardrail_result.passed else 2
+
+    if args.command == "guardrail-check-evidence":
+        evidence_matches = [
+            item for item in load_local_evidence() if item.evidence_id == args.evidence_id
+        ]
+        if not evidence_matches:
+            raise ValueError(f"unknown evidence_id: {args.evidence_id}")
+        guardrail_result = GuardrailService().check_evidence(evidence_matches[0])
+        _emit(guardrail_result.model_dump(mode="json"), args.json)
+        return 0 if guardrail_result.passed else 2
+
+    if args.command == "prepare-review":
+        record = HumanReviewService().prepare_review(args.case_id, ExecutionMode(args.mode))
+        _emit(record.model_dump(mode="json"), args.json)
+        return 0
+
+    if args.command == "list-reviews":
+        records = ReviewStore().list_records()
+        _emit([record.model_dump(mode="json") for record in records], args.json)
+        return 0
+
+    if args.command == "show-review":
+        record = ReviewStore().load(args.review_id)
+        _emit(record.model_dump(mode="json"), args.json)
+        return 0
+
+    if args.command == "decide-review":
+        decision = HumanReviewDecision(args.decision.upper())
+        amendments = (
+            load_amendments_from_file(Path(args.amendment_file)) if args.amendment_file else []
+        )
+        record = HumanReviewService().decide(
+            review_id=args.review_id,
+            decision=decision,
+            reviewer_id=args.reviewer_id,
+            comments=args.comments,
+            reason=args.reason,
+            amendments=amendments,
+        )
+        _emit(record.model_dump(mode="json"), args.json)
+        return 0
+
+    if args.command == "verify-review-integrity":
+        integrity_result = HumanReviewService().verify_integrity(args.review_id)
+        _emit(integrity_result, args.json)
+        return 0 if integrity_result["valid"] else 2
+
+    if args.command == "run-security-evaluation":
+        summary = run_security_evaluation()
+        _emit(summary.model_dump(mode="json"), args.json)
+        return 0 if summary.false_negatives == 0 else 2
 
     raise ValueError(f"Unsupported command: {args.command}")
 
