@@ -1,12 +1,19 @@
-"""Coordinator agent placeholder for future Google ADK orchestration."""
+"""Google ADK coordinator agent definition."""
 
-from schemas.assessment import PathwayAssessment
-from schemas.case import SyntheticPathwayCase
+from google.adk.agents import Agent
+from tools.adk_tools import build_adk_tools
+
+from agents.registry import AGENT_MODEL_PLACEHOLDER, load_instruction
+
+RESPONSIBILITY = "Coordinate specialist agents and enforce deterministic review-gated output."
 
 
-class CoordinatorAgent:
-    """Planned workflow controller for future Google ADK orchestration."""
-
-    def assess_case(self, case: SyntheticPathwayCase) -> PathwayAssessment:
-        """Delegate future agent workflow steps around deterministic assessment."""
-        raise NotImplementedError("Agent orchestration will be implemented in a later milestone.")
+def create_coordinator_agent() -> Agent:
+    """Create the ADK coordinator agent definition."""
+    return Agent(
+        name="coordinator_agent",
+        model=AGENT_MODEL_PLACEHOLDER,
+        description=RESPONSIBILITY,
+        instruction=load_instruction("coordinator.md"),
+        tools=build_adk_tools(),
+    )

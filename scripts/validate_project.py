@@ -1,4 +1,4 @@
-"""Validate the Milestone 2 repository scaffold and deterministic data."""
+"""Validate the Milestone 3 repository scaffold, deterministic data and agent files."""
 
 from __future__ import annotations
 
@@ -22,14 +22,24 @@ REQUIRED_PATHS = [
     "tools/pathway_tools.py",
     "services/risk_engine.py",
     "services/assessment_service.py",
+    "services/agent_orchestrator.py",
+    "services/agent_config.py",
+    "services/agent_review.py",
+    "tools/adk_tools.py",
     "data/synthetic_cases.json",
     "data/pathway_targets.json",
+    "data/evidence/local_evidence.json",
     "schemas/case.py",
     "schemas/assessment.py",
     "schemas/escalation.py",
+    "schemas/agent.py",
     "docs/risk-scoring-methodology.md",
     "docs/deterministic-assessment-workflow.md",
     "docs/data-dictionary.md",
+    "docs/adk-agent-architecture.md",
+    "docs/agent-instructions.md",
+    "docs/live-model-configuration.md",
+    "docs/agent-execution-modes.md",
     "security/threat_model.md",
 ]
 
@@ -83,7 +93,7 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
-    print("Milestone 2 project validation passed.")
+    print("Milestone 3 project validation passed.")
     return 0
 
 

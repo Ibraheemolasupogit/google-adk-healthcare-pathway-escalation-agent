@@ -59,3 +59,15 @@
 - **Threat:** Very large cases or evidence payloads exhaust resources.
 - **Mitigation:** Add input-size limits, timeout controls, and safe failure behavior.
 - **Residual risk:** Limits require tuning against future deployment capacity.
+
+## Agent Prompt Injection and Tool Misuse
+
+- **Threat:** User input or retrieved evidence attempts to override instructions, tools, deterministic values or human-review controls.
+- **Mitigation:** Use maximum input size, workflow step limits, tool-call limits, local evidence only, deterministic-value review checks, prohibited-language checks and schema validation.
+- **Residual risk:** Live model behavior will require additional adversarial testing before any public deployment.
+
+## Malformed Model Output or Model Unavailability
+
+- **Threat:** Live model output is invalid, unavailable or tries to bypass required schemas.
+- **Mitigation:** Mock mode is used for tests, live mode is credential-gated, malformed output fails validation, and invalid outputs are not presented as successful.
+- **Residual risk:** Live execution needs operational monitoring and timeout configuration in later milestones.

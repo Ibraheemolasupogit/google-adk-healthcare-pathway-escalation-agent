@@ -1,12 +1,19 @@
-"""Risk agent placeholder for deterministic operational risk scoring."""
+"""Google ADK risk agent definition."""
 
-from schemas.assessment import PathwayAssessment
-from schemas.case import SyntheticPathwayCase
+from google.adk.agents import Agent
+from tools.adk_tools import build_adk_tools
+
+from agents.registry import AGENT_MODEL_PLACEHOLDER, load_instruction
+
+RESPONSIBILITY = "Explain deterministic operational risk without recalculating it."
 
 
-class RiskAgent:
-    """Planned agent that calculates explainable operational risk."""
-
-    def calculate_risk(self, case: SyntheticPathwayCase) -> PathwayAssessment:
-        """Calculate deterministic risk and contributing factors."""
-        raise NotImplementedError("Risk scoring will be implemented in a later milestone.")
+def create_risk_agent() -> Agent:
+    """Create the ADK risk agent definition."""
+    return Agent(
+        name="risk_agent",
+        model=AGENT_MODEL_PLACEHOLDER,
+        description=RESPONSIBILITY,
+        instruction=load_instruction("risk.md"),
+        tools=build_adk_tools(),
+    )

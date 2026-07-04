@@ -61,3 +61,38 @@ def test_cli_assess_all_works() -> None:
     assert result.returncode == 0
     payload = json.loads(result.stdout)
     assert len(payload) == 15
+
+
+def test_cli_agent_assess_mock_works() -> None:
+    result = run_cli("agent-assess", "--case-id", "SYN-CANCER-2WW-001", "--mode", "mock", "--json")
+
+    assert result.returncode == 0
+    payload = json.loads(result.stdout)
+    assert payload["execution_mode"] == "mock"
+    assert payload["human_review_required"] is True
+    assert payload["review_status"] == "PENDING"
+
+
+def test_cli_agent_assess_rejects_unknown_case_id() -> None:
+    result = run_cli("agent-assess", "--case-id", "SYN-UNKNOWN-001", "--mode", "mock")
+
+    assert result.returncode == 2
+    assert "ERROR:" in result.stdout
+
+
+def test_cli_describe_agents_and_list_evidence_work() -> None:
+    agents = run_cli("describe-agents", "--json")
+    evidence = run_cli("list-evidence", "--json")
+
+    assert agents.returncode == 0
+    assert evidence.returncode == 0
+    assert len(json.loads(agents.stdout)) == 6
+    assert all(item["demonstration_only"] is True for item in json.loads(evidence.stdout))
+
+
+def test_cli_validate_agent_config_works_without_credentials() -> None:
+    result = run_cli("validate-agent-config", "--json")
+
+    assert result.returncode == 0
+    payload = json.loads(result.stdout)
+    assert payload["google_adk_version"] == "1.36.0"

@@ -18,6 +18,7 @@ This document describes the planned architecture and the implemented determinist
 - **Policy-evidence tools or MCP server:** retrieves controlled supporting evidence.
 - **Structured schemas:** define synthetic cases, assessments, recommendations, and review state.
 - **Deterministic services:** implement Milestone 2 assessment and risk logic without LLM or external API calls.
+- **ADK orchestration layer:** defines coordinator, pathway, risk, evidence, escalation and review agents with controlled local tools.
 - **Guardrails:** protect against personal data, prompt injection, unsupported claims, unsafe output, and autonomous escalation.
 - **Audit logging:** records inputs, tool calls, calculations, evidence metadata, validation, and human decisions.
 - **Human approval:** required before finalising any escalation.
@@ -28,7 +29,7 @@ This document describes the planned architecture and the implemented determinist
 
 1. A reviewer submits a synthetic case.
 2. Guardrails validate the input and reject unsafe or identifiable content.
-3. The deterministic assessment service coordinates pathway, risk, action and audit steps in Milestone 2.
+3. The ADK orchestration layer coordinates specialist agents around deterministic tools in Milestone 3.
 4. Tools or MCP-compatible servers provide controlled case data, pathway targets, and evidence.
 5. Structured schemas validate each output.
 6. Audit logging records the execution trace.

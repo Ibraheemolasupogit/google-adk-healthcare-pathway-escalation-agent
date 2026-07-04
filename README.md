@@ -2,7 +2,7 @@
 
 NHS Pathway Escalation and Evidence Agent is a portfolio-quality project for the Kaggle **AI Agents: Intensive Vibe Coding Capstone Project** under the **Agents for Good** track. It currently implements a deterministic domain layer for synthetic NHS operational pathway cases: case validation, demonstration pathway-rule loading, elapsed-time calculation, breach classification, explainable operational risk scoring, operational action generation, audit traces and a CLI.
 
-This repository still does not implement AI-agent orchestration. Google ADK, Gemini, MCP network services, policy retrieval, a human approval interface, frontend and deployment remain planned later milestones.
+This repository now includes a Milestone 3 Google ADK orchestration layer with offline mock execution. MCP network services, Agent Skills integration beyond documentation, a human approval interface, frontend, deployment and final Kaggle assets remain planned later milestones.
 
 ## Implemented in Milestone 2
 
@@ -16,14 +16,19 @@ This repository still does not implement AI-agent orchestration. Google ADK, Gem
 - Audit trace generation for deterministic assessments.
 - CLI commands for listing, showing, validating and assessing cases.
 - Tests for domain logic, CLI behavior, data validation, security constraints and schema outputs.
+- Google ADK-based agent definitions.
+- Specialist-agent orchestration around deterministic tools.
+- Safe ADK tool wrappers.
+- Local demonstration evidence retrieval.
+- Mock execution mode.
+- Live Gemini configuration path.
+- Structured review and agent audit records.
 
 ## Planned Later
 
-- Google Agent Development Kit orchestration.
-- Gemini integration.
 - MCP-compatible network services.
-- Agent Skills integration.
-- Policy evidence retrieval.
+- Agent Skills integration where not yet complete.
+- Live Gemini execution in configured environments.
 - Human approval user interface.
 - Google Cloud Run deployment.
 - Kaggle submission assets, video and demo materials.
@@ -67,6 +72,10 @@ python -m app.main assess-all
 python -m app.main list-pathways
 python -m app.main validate-data
 python -m app.main describe-risk-model
+python -m app.main agent-assess --case-id SYN-CANCER-2WW-001 --mode mock
+python -m app.main describe-agents
+python -m app.main validate-agent-config
+python -m app.main list-evidence
 ```
 
 Most commands support `--json`. Assessment commands can write ignored runtime artifacts under `artifacts/assessments/`.
@@ -105,6 +114,9 @@ tests/        unit, integration and security tests
 - [Deterministic assessment workflow](docs/deterministic-assessment-workflow.md)
 - [Risk scoring methodology](docs/risk-scoring-methodology.md)
 - [Data dictionary](docs/data-dictionary.md)
+- [ADK agent architecture](docs/adk-agent-architecture.md)
+- [Agent execution modes](docs/agent-execution-modes.md)
+- [Live model configuration](docs/live-model-configuration.md)
 - [Roadmap](docs/roadmap.md)
 
 ## Disclaimer

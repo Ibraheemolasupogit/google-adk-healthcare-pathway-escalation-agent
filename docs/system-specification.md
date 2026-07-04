@@ -2,7 +2,7 @@
 
 ## Project Scope
 
-The project provides a deterministic Milestone 2 domain layer for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations, and requiring human approval before finalisation. Future milestones will add agent orchestration and evidence retrieval.
+The project provides deterministic pathway assessment and a Milestone 3 Google ADK orchestration layer for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations, and requiring human approval before finalisation.
 
 ## Goals
 
@@ -17,7 +17,7 @@ The project provides a deterministic Milestone 2 domain layer for analysing synt
 - No clinical diagnosis, triage, treatment, or autonomous clinical decision-making.
 - No use of real patient-identifiable data.
 - No production NHS deployment in Milestone 2.
-- No Gemini, Google ADK orchestration, MCP network service, or frontend implementation in Milestone 2.
+- No functional MCP network service, frontend, deployment or autonomous escalation in Milestone 3.
 
 ## Functional Requirements
 
@@ -49,9 +49,9 @@ The project provides a deterministic Milestone 2 domain layer for analysing synt
 
 ## Constraints
 
-- Milestone 2 is deterministic local domain logic only.
+- Milestone 3 adds ADK agent orchestration while preserving deterministic values as the source of truth.
 - Secrets must not be committed.
-- Functional AI-agent behavior is deferred.
+- Live Gemini execution requires explicit Google configuration and is not required for tests.
 - All outputs must include `human_review_required`.
 
 ## System Actors

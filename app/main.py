@@ -1,4 +1,4 @@
-"""Deterministic command-line interface for Milestone 2."""
+"""Deterministic and ADK agent command-line interface."""
 
 from __future__ import annotations
 
@@ -7,9 +7,16 @@ import json
 from pathlib import Path
 from typing import Any
 
+from agents.registry import describe_agents
+from schemas.agent import ExecutionMode
+from services.agent_orchestrator import (
+    run_agent_assessment,
+    validate_agent_configuration,
+)
 from services.assessment_service import assess_case, assess_cases
 from services.risk_engine import assign_risk_level
 from tools.case_tools import get_case_by_id, load_synthetic_cases
+from tools.evidence_tools import load_local_evidence
 from tools.exceptions import CaseNotFoundError, DomainValidationError, PathwayRuleNotFoundError
 from tools.pathway_tools import load_pathway_rules
 
@@ -51,6 +58,32 @@ def build_parser() -> argparse.ArgumentParser:
 
     describe_risk = subparsers.add_parser("describe-risk-model", help="Describe risk scoring.")
     describe_risk.add_argument("--json", action="store_true", help="Output JSON.")
+
+    agent_assess = subparsers.add_parser("agent-assess", help="Run ADK agent orchestration.")
+    agent_assess.add_argument("--case-id", required=True)
+    agent_assess.add_argument(
+        "--mode",
+        choices=[mode.value for mode in ExecutionMode],
+        default=ExecutionMode.MOCK.value,
+    )
+    agent_assess.add_argument("--json", action="store_true", help="Output JSON.")
+
+    describe_agent_parser = subparsers.add_parser("describe-agents", help="Describe ADK agents.")
+    describe_agent_parser.add_argument("--json", action="store_true", help="Output JSON.")
+
+    validate_agent = subparsers.add_parser(
+        "validate-agent-config",
+        help="Validate non-secret agent configuration.",
+    )
+    validate_agent.add_argument(
+        "--mode",
+        choices=[mode.value for mode in ExecutionMode],
+        default=ExecutionMode.MOCK.value,
+    )
+    validate_agent.add_argument("--json", action="store_true", help="Output JSON.")
+
+    list_evidence = subparsers.add_parser("list-evidence", help="List local evidence.")
+    list_evidence.add_argument("--json", action="store_true", help="Output JSON.")
     return parser
 
 
@@ -124,6 +157,23 @@ def _run_command(args: argparse.Namespace) -> int:
 
     if args.command == "describe-risk-model":
         _emit(_risk_model_description(), args.json)
+        return 0
+
+    if args.command == "agent-assess":
+        result = run_agent_assessment(args.case_id, ExecutionMode(args.mode))
+        _emit(result.model_dump(mode="json"), args.json)
+        return 0
+
+    if args.command == "describe-agents":
+        _emit(describe_agents(), args.json)
+        return 0
+
+    if args.command == "validate-agent-config":
+        _emit(validate_agent_configuration(ExecutionMode(args.mode)), args.json)
+        return 0
+
+    if args.command == "list-evidence":
+        _emit([item.model_dump(mode="json") for item in load_local_evidence()], args.json)
         return 0
 
     raise ValueError(f"Unsupported command: {args.command}")

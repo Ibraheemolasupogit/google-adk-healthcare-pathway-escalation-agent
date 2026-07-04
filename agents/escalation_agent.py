@@ -1,12 +1,19 @@
-"""Escalation agent placeholder for structured escalation drafts."""
+"""Google ADK escalation agent definition."""
 
-from schemas.assessment import PathwayAssessment
-from schemas.escalation import EscalationRecommendation
+from google.adk.agents import Agent
+from tools.adk_tools import build_adk_tools
+
+from agents.registry import AGENT_MODEL_PLACEHOLDER, load_instruction
+
+RESPONSIBILITY = "Draft structured non-clinical operational escalation content."
 
 
-class EscalationAgent:
-    """Planned agent that drafts recommendations without sending them."""
-
-    def generate_draft(self, assessment: PathwayAssessment) -> EscalationRecommendation:
-        """Generate a structured draft that remains subject to human approval."""
-        raise NotImplementedError("Escalation drafting will be implemented in a later milestone.")
+def create_escalation_agent() -> Agent:
+    """Create the ADK escalation agent definition."""
+    return Agent(
+        name="escalation_agent",
+        model=AGENT_MODEL_PLACEHOLDER,
+        description=RESPONSIBILITY,
+        instruction=load_instruction("escalation.md"),
+        tools=build_adk_tools(),
+    )

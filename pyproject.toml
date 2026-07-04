@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nhs-pathway-escalation-evidence-agent"
 version = "0.1.0"
-description = "Milestone 1 foundation for a synthetic NHS pathway escalation and evidence agent."
+description = "Synthetic NHS pathway escalation and evidence agent with deterministic assessment and ADK orchestration."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Ibraheem Adeleke" }]
-dependencies = ["pydantic>=2.7,<3"]
+dependencies = ["google-adk>=1.36,<2", "pydantic>=2.7,<3"]
 
 [tool.setuptools]
 packages = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services"]
@@ -18,7 +18,7 @@ packages = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "eva
 [tool.ruff]
 target-version = "py311"
 line-length = 100
-src = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "scripts", "tests"]
+src = ["app", "agents", "tools", "mcp_servers", "schemas", "security", "evaluation", "services", "scripts", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]

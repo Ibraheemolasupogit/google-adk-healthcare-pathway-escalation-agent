@@ -1,0 +1,62 @@
+[
+  {
+    "evidence_id": "DEMO-CANCER-2WW-001",
+    "title": "Demonstration Cancer Two Week Wait Operational Summary",
+    "pathway_code": "CANCER_2WW",
+    "evidence_type": "DEMONSTRATION_SUMMARY",
+    "summary": "Synthetic summary stating that pathway targets should be checked against controlled local configuration and reviewed by an authorised operational owner.",
+    "source_label": "Local demonstration evidence pack",
+    "source_url_placeholder": "SOURCE_URL_PLACEHOLDER_VALIDATE_AGAINST_AUTHORITATIVE_GUIDANCE",
+    "demonstration_only": true,
+    "validation_required": true,
+    "version": "2026-07-demo"
+  },
+  {
+    "evidence_id": "DEMO-CANCER-FDS-001",
+    "title": "Demonstration Cancer Faster Diagnosis Operational Summary",
+    "pathway_code": "CANCER_FDS_28",
+    "evidence_type": "DEMONSTRATION_SUMMARY",
+    "summary": "Synthetic summary for operational tracking of faster diagnosis pathway milestones using demonstration targets only.",
+    "source_label": "Local demonstration evidence pack",
+    "source_url_placeholder": "SOURCE_URL_PLACEHOLDER_VALIDATE_AGAINST_AUTHORITATIVE_GUIDANCE",
+    "demonstration_only": true,
+    "validation_required": true,
+    "version": "2026-07-demo"
+  },
+  {
+    "evidence_id": "DEMO-CANCER-62-001",
+    "title": "Demonstration Cancer 62-Day Operational Summary",
+    "pathway_code": "CANCER_62",
+    "evidence_type": "DEMONSTRATION_SUMMARY",
+    "summary": "Synthetic summary for monitoring 62-day cancer pathway operational status and escalation readiness.",
+    "source_label": "Local demonstration evidence pack",
+    "source_url_placeholder": "SOURCE_URL_PLACEHOLDER_VALIDATE_AGAINST_AUTHORITATIVE_GUIDANCE",
+    "demonstration_only": true,
+    "validation_required": true,
+    "version": "2026-07-demo"
+  },
+  {
+    "evidence_id": "DEMO-RTT-001",
+    "title": "Demonstration RTT 18-Week Operational Summary",
+    "pathway_code": "RTT_18_WEEK",
+    "evidence_type": "DEMONSTRATION_SUMMARY",
+    "summary": "Synthetic summary for referral-to-treatment operational pathway tracking using local demonstration targets only.",
+    "source_label": "Local demonstration evidence pack",
+    "source_url_placeholder": "SOURCE_URL_PLACEHOLDER_VALIDATE_AGAINST_AUTHORITATIVE_GUIDANCE",
+    "demonstration_only": true,
+    "validation_required": true,
+    "version": "2026-07-demo"
+  },
+  {
+    "evidence_id": "DEMO-UEC-001",
+    "title": "Demonstration UEC 4-Hour Operational Summary",
+    "pathway_code": "UEC_4_HOUR",
+    "evidence_type": "DEMONSTRATION_SUMMARY",
+    "summary": "Synthetic summary for urgent and emergency care operational flow monitoring using demonstration targets only.",
+    "source_label": "Local demonstration evidence pack",
+    "source_url_placeholder": "SOURCE_URL_PLACEHOLDER_VALIDATE_AGAINST_AUTHORITATIVE_GUIDANCE",
+    "demonstration_only": true,
+    "validation_required": true,
+    "version": "2026-07-demo"
+  }
+]

@@ -1,5 +1,18 @@
 """Structured schemas for deterministic pathway assessment workflows."""
 
+from schemas.agent import (
+    AgentDraft,
+    AgentExecutionResult,
+    AgentName,
+    AgentRequest,
+    AgentStep,
+    AgentToolInvocation,
+    ExecutionMode,
+    LocalEvidenceDocument,
+    ReviewFinding,
+    ReviewResult,
+    ReviewSeverity,
+)
 from schemas.assessment import (
     ActionPriority,
     AssessmentExecutionTrace,
@@ -18,17 +31,28 @@ from schemas.escalation import EscalationRecommendation
 
 __all__ = [
     "ActionPriority",
+    "AgentDraft",
+    "AgentExecutionResult",
+    "AgentName",
+    "AgentRequest",
+    "AgentStep",
+    "AgentToolInvocation",
     "AssessmentExecutionTrace",
     "AuditEvent",
     "BreachAssessment",
     "BreachStatus",
     "EscalationRecommendation",
+    "ExecutionMode",
+    "LocalEvidenceDocument",
     "PathwayAssessment",
     "PathwayCategory",
     "PathwayCode",
     "PathwayRule",
     "Priority",
     "RecommendedAction",
+    "ReviewFinding",
+    "ReviewResult",
+    "ReviewSeverity",
     "ReviewStatus",
     "RiskFactor",
     "RiskLevel",

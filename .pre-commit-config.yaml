@@ -19,4 +19,5 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies:
+          - google-adk>=1.36,<2
           - pydantic>=2.7,<3

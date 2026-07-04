@@ -26,4 +26,4 @@ Each assessment contains a unique trace ID, timestamps, rule version, rule used,
 
 ## Milestone Boundaries
 
-This workflow does not use Google ADK, Gemini, MCP network services, policy retrieval, frontend UI or deployment.
+This deterministic workflow remains available independently of Google ADK. Milestone 3 wraps it in ADK agent orchestration for mock and live-configured execution, but deterministic values remain authoritative.

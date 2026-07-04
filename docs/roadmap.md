@@ -10,7 +10,7 @@ Deterministic pathway models, schemas, synthetic data and operational risk asses
 
 ## Milestone 3
 
-Google ADK agent orchestration.
+Google ADK agent orchestration. Implemented in this milestone with mock/offline execution and live configuration gating.
 
 ## Milestone 4
 
