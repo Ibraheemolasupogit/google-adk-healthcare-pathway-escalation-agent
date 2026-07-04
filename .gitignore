@@ -34,3 +34,4 @@ service-account*.json
 runtime_outputs/
 outputs/
 logs/
+artifacts/

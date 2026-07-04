@@ -2,11 +2,11 @@
 
 ## Milestone 1
 
-Repository foundation, architecture and specification.
+Repository foundation, architecture and specification. Completed.
 
 ## Milestone 2
 
-Deterministic pathway models, schemas and synthetic data.
+Deterministic pathway models, schemas, synthetic data and operational risk assessment. Implemented in this milestone.
 
 ## Milestone 3
 

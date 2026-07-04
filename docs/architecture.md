@@ -1,8 +1,8 @@
 # Architecture
 
-## Milestone 1 Status
+## Milestone 2 Status
 
-This document describes the planned architecture. The repository currently implements only the foundation, placeholder interfaces, schemas, documentation, synthetic data, and validation tests.
+This document describes the planned architecture and the implemented deterministic domain layer. The repository now implements local case validation, pathway-rule loading, elapsed-time calculation, breach classification, operational risk scoring, recommended actions, audit traces and CLI commands. Agent orchestration, Gemini, MCP network services, policy retrieval, UI and deployment remain planned.
 
 ## Planned Components
 
@@ -17,6 +17,7 @@ This document describes the planned architecture. The repository currently imple
 - **Pathway-rules tools or MCP server:** provides validated target configuration.
 - **Policy-evidence tools or MCP server:** retrieves controlled supporting evidence.
 - **Structured schemas:** define synthetic cases, assessments, recommendations, and review state.
+- **Deterministic services:** implement Milestone 2 assessment and risk logic without LLM or external API calls.
 - **Guardrails:** protect against personal data, prompt injection, unsupported claims, unsafe output, and autonomous escalation.
 - **Audit logging:** records inputs, tool calls, calculations, evidence metadata, validation, and human decisions.
 - **Human approval:** required before finalising any escalation.
@@ -27,7 +28,7 @@ This document describes the planned architecture. The repository currently imple
 
 1. A reviewer submits a synthetic case.
 2. Guardrails validate the input and reject unsafe or identifiable content.
-3. The coordinator delegates pathway, risk, evidence, escalation, and review tasks.
+3. The deterministic assessment service coordinates pathway, risk, action and audit steps in Milestone 2.
 4. Tools or MCP-compatible servers provide controlled case data, pathway targets, and evidence.
 5. Structured schemas validate each output.
 6. Audit logging records the execution trace.

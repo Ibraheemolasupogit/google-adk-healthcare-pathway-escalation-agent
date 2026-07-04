@@ -2,7 +2,7 @@
 
 ## Project Scope
 
-The project will provide an agentic workflow for analysing synthetic NHS operational pathway cases, calculating pathway status, retrieving supporting evidence, drafting escalation recommendations, and requiring human approval before finalisation.
+The project provides a deterministic Milestone 2 domain layer for analysing synthetic NHS operational pathway cases, calculating pathway status, generating operational risk scores, drafting non-clinical escalation recommendations, and requiring human approval before finalisation. Future milestones will add agent orchestration and evidence retrieval.
 
 ## Goals
 
@@ -16,8 +16,8 @@ The project will provide an agentic workflow for analysing synthetic NHS operati
 
 - No clinical diagnosis, triage, treatment, or autonomous clinical decision-making.
 - No use of real patient-identifiable data.
-- No production NHS deployment in Milestone 1.
-- No Gemini, Google ADK orchestration, MCP network service, or frontend implementation in Milestone 1.
+- No production NHS deployment in Milestone 2.
+- No Gemini, Google ADK orchestration, MCP network service, or frontend implementation in Milestone 2.
 
 ## Functional Requirements
 
@@ -25,7 +25,7 @@ The project will provide an agentic workflow for analysing synthetic NHS operati
 - **FR-02:** Determine the applicable pathway target.
 - **FR-03:** Calculate target and breach status deterministically.
 - **FR-04:** Calculate an explainable operational risk score.
-- **FR-05:** Retrieve supporting pathway evidence.
+- **FR-05:** Retrieve supporting pathway evidence in a future milestone.
 - **FR-06:** Generate recommended operational actions.
 - **FR-07:** Require human approval before finalising an escalation.
 - **FR-08:** Record an auditable execution trace.
@@ -49,9 +49,9 @@ The project will provide an agentic workflow for analysing synthetic NHS operati
 
 ## Constraints
 
-- Milestone 1 is documentation and scaffold only.
+- Milestone 2 is deterministic local domain logic only.
 - Secrets must not be committed.
-- Functional agent behavior is deferred.
+- Functional AI-agent behavior is deferred.
 - All outputs must include `human_review_required`.
 
 ## System Actors
@@ -65,39 +65,52 @@ The project will provide an agentic workflow for analysing synthetic NHS operati
 ## Principal Workflows
 
 1. Synthetic case is submitted.
-2. Coordinator agent validates input shape and synthetic-data constraints.
-3. Pathway agent identifies the pathway and controlled target.
-4. Risk agent calculates breach status and operational risk.
-5. Evidence agent retrieves supporting evidence with metadata.
-6. Escalation agent drafts recommended operational actions.
-7. Review agent validates schema, evidence grounding, unsupported claims, and safety.
+2. Deterministic case tools validate input shape and synthetic-data constraints.
+3. Pathway tools identify the controlled demonstration target rule.
+4. The assessment service calculates breach status and operational risk.
+5. Evidence retrieval remains planned for a later milestone.
+6. The assessment service drafts recommended non-clinical operational actions.
+7. Schemas validate completeness, review state and safety flags.
 8. Human reviewer approves, rejects, or requests changes.
 9. Audit trace records inputs, tool activity, validation results, and review outcome.
 
 ## Input Schema
 
-The minimal synthetic case schema includes:
+The synthetic case schema includes:
 
 - `case_id`
 - `synthetic`
-- `pathway_type`
-- `referral_or_arrival_day`
-- `current_day`
-- `status`
-- `operational_context`
-- `human_review_required`
+- `pathway_code`
+- `referral_or_arrival_datetime`
+- `assessment_datetime`
+- `current_stage`
+- `priority`
+- `next_event_datetime`
+- `operational_flags`
+- `source_system`
+- `notes`
 
 ## Output Schema
 
-The minimal escalation recommendation schema includes:
+The final assessment and escalation schemas include:
 
 - `case_id`
-- `summary`
+- `pathway_code`
+- `pathway_name`
+- `target`
+- `elapsed_time`
+- `breach_status`
+- `variance_from_target`
+- `risk_score`
+- `risk_level`
+- `risk_factors`
 - `recommended_actions`
-- `supporting_evidence`
-- `unsupported_claims`
+- `assumptions`
+- `warnings`
+- `demonstration_only`
 - `human_review_required`
-- `approved_by_human`
+- `review_status`
+- `audit_trace_id`
 
 ## Human-Review Requirements
 
@@ -110,7 +123,7 @@ The minimal escalation recommendation schema includes:
 
 - Record pathway target source metadata.
 - Record deterministic calculation inputs and outputs.
-- Record evidence retrieval source metadata.
+- Record evidence retrieval source metadata in a future milestone.
 - Record validation results and human approval state.
 - Avoid logging secrets or patient-identifiable information.
 
@@ -125,12 +138,12 @@ The minimal escalation recommendation schema includes:
 
 ## Acceptance Criteria
 
-- Repository structure matches the Milestone 1 plan.
-- Placeholder modules are importable and non-operational.
-- Schemas validate minimal synthetic cases and escalation drafts.
-- Documentation clearly separates planned functionality from implemented foundation.
+- Repository structure supports the Milestone 2 deterministic domain layer.
+- Placeholder agent and MCP modules remain non-network and non-LLM.
+- Schemas validate synthetic cases, rules, assessments, escalation drafts and audit traces.
+- Documentation clearly separates implemented deterministic functionality from planned AI-agent functionality.
 - Quality checks pass.
 
 ## Definition of Done
 
-Milestone 1 is done when the scaffold, documentation, schemas, synthetic sample data, tests, validation script, and development commands are present and passing, with no real patient data, no secrets, no deployment, and no production agent behavior.
+Milestone 2 is done when deterministic rules, case validation, breach assessment, risk scoring, recommended actions, audit traces, CLI commands, documentation and tests are present and passing, with no real patient data, no secrets, no deployment, and no production AI-agent behavior.

@@ -1,12 +1,12 @@
 """Coordinator agent placeholder for future Google ADK orchestration."""
 
+from schemas.assessment import PathwayAssessment
 from schemas.case import SyntheticPathwayCase
-from schemas.escalation import EscalationRecommendation
 
 
 class CoordinatorAgent:
-    """Planned workflow controller for specialist agents."""
+    """Planned workflow controller for future Google ADK orchestration."""
 
-    def draft_escalation(self, case: SyntheticPathwayCase) -> EscalationRecommendation:
-        """Delegate future pathway, risk, evidence, escalation, and review steps."""
-        raise NotImplementedError("Coordinator workflow will be implemented in a later milestone.")
+    def assess_case(self, case: SyntheticPathwayCase) -> PathwayAssessment:
+        """Delegate future agent workflow steps around deterministic assessment."""
+        raise NotImplementedError("Agent orchestration will be implemented in a later milestone.")
