@@ -1,0 +1,32 @@
+[
+  {
+    "case_id": "SYN-CANCER-2WW-001",
+    "synthetic": true,
+    "pathway_type": "cancer_2ww",
+    "referral_or_arrival_day": 0,
+    "current_day": 13,
+    "status": "awaiting first specialist appointment",
+    "operational_context": "Training scenario for a suspected cancer two-week-wait pathway approaching target.",
+    "human_review_required": true
+  },
+  {
+    "case_id": "SYN-RTT-001",
+    "synthetic": true,
+    "pathway_type": "rtt",
+    "referral_or_arrival_day": 0,
+    "current_day": 119,
+    "status": "awaiting elective treatment scheduling",
+    "operational_context": "Training scenario for a referral-to-treatment pathway close to an illustrative target.",
+    "human_review_required": true
+  },
+  {
+    "case_id": "SYN-UEC-001",
+    "synthetic": true,
+    "pathway_type": "uec",
+    "referral_or_arrival_day": 0,
+    "current_day": 1,
+    "status": "awaiting operational discharge coordination",
+    "operational_context": "Training scenario for urgent and emergency care operational flow monitoring.",
+    "human_review_required": true
+  }
+]

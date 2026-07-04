@@ -1,0 +1,17 @@
+[
+  {
+    "case_id": "SYN-CANCER-2WW-001",
+    "human_review_required": true,
+    "status": "placeholder"
+  },
+  {
+    "case_id": "SYN-RTT-001",
+    "human_review_required": true,
+    "status": "placeholder"
+  },
+  {
+    "case_id": "SYN-UEC-001",
+    "human_review_required": true,
+    "status": "placeholder"
+  }
+]

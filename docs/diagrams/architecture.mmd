@@ -1,0 +1,51 @@
+flowchart TD
+    reviewer["User or Reviewer Interface"]
+    guardrails["Input Guardrails"]
+    coordinator["Coordinator Agent"]
+    pathway["Pathway Agent"]
+    risk["Risk Agent"]
+    evidence["Evidence Agent"]
+    escalation["Escalation Agent"]
+    review["Review Agent"]
+    human["Human Approval"]
+    schemas["Structured Schemas"]
+    audit["Audit Logging"]
+    evaluation["Evaluation Framework"]
+
+    subgraph boundary["Future Deployment Boundary"]
+        guardrails
+        coordinator
+        pathway
+        risk
+        evidence
+        escalation
+        review
+        schemas
+        audit
+    end
+
+    case_tools["Case-Data Tools or MCP Server"]
+    rules_tools["Pathway-Rules Tools or MCP Server"]
+    policy_tools["Policy-Evidence Tools or MCP Server"]
+
+    reviewer --> guardrails
+    guardrails --> coordinator
+    coordinator --> pathway
+    coordinator --> risk
+    coordinator --> evidence
+    coordinator --> escalation
+    coordinator --> review
+    pathway --> rules_tools
+    risk --> case_tools
+    evidence --> policy_tools
+    escalation --> schemas
+    review --> schemas
+    review --> human
+    coordinator --> audit
+    pathway --> audit
+    risk --> audit
+    evidence --> audit
+    escalation --> audit
+    review --> audit
+    evaluation --> schemas
+    evaluation --> audit

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "synthetic": true,
+    "purpose": "Demonstration-only target configuration for Milestone 1 repository validation.",
+    "warning": "Values are illustrative and must be validated against current authoritative guidance before operational use.",
+    "source_status": "Not authoritative"
+  },
+  "targets": [
+    {
+      "pathway_type": "cancer_2ww",
+      "label": "Cancer Two Week Wait",
+      "target_days": 14,
+      "basis": "Illustrative software-design placeholder"
+    },
+    {
+      "pathway_type": "rtt",
+      "label": "Referral to Treatment",
+      "target_days": 126,
+      "basis": "Illustrative software-design placeholder"
+    },
+    {
+      "pathway_type": "uec",
+      "label": "Urgent and Emergency Care",
+      "target_days": 1,
+      "basis": "Illustrative software-design placeholder"
+    }
+  ]
+}

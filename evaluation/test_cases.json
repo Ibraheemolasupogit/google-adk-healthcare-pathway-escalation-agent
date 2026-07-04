@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "SYN-CANCER-2WW-001",
+    "scenario": "Cancer 2WW synthetic case for future evaluation."
+  },
+  {
+    "case_id": "SYN-RTT-001",
+    "scenario": "RTT synthetic case for future evaluation."
+  },
+  {
+    "case_id": "SYN-UEC-001",
+    "scenario": "UEC synthetic case for future evaluation."
+  }
+]
