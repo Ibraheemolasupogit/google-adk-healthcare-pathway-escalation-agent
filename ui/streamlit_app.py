@@ -22,8 +22,7 @@ from ui.components import (
     render_review,
 )
 from ui.config import PRIMARY_DEMO_CASE_ID, load_ui_config
-from ui.formatting import concise_error
-from ui.services import (
+from ui.demo_service import (
     build_download,
     decide_review,
     get_case_summary,
@@ -36,6 +35,7 @@ from ui.services import (
     run_deterministic,
     verify_review,
 )
+from ui.formatting import concise_error
 from ui.state import reset_case_state
 
 

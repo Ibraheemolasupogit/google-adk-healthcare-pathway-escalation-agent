@@ -18,10 +18,7 @@ from ui.config import (
     available_public_modes,
     load_ui_config,
 )
-from ui.formatting import concise_error
-from ui.health import run_health_checks
-from ui.help_content import ARCHITECTURE_SUMMARY, LIMITATIONS
-from ui.services import (
+from ui.demo_service import (
     build_download,
     decide_review,
     get_case_summary,
@@ -33,6 +30,9 @@ from ui.services import (
     run_agent,
     run_deterministic,
 )
+from ui.formatting import concise_error
+from ui.health import run_health_checks
+from ui.help_content import ARCHITECTURE_SUMMARY, LIMITATIONS
 from ui.state import reset_case_state
 
 

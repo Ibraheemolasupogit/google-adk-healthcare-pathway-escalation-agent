@@ -41,7 +41,7 @@ REQUIRED_PATHS = [
     "services/evaluation/runner.py",
     "ui/streamlit_app.py",
     "ui/components.py",
-    "ui/services.py",
+    "ui/demo_service.py",
     "ui/config.py",
     "ui/formatting.py",
     "ui/state.py",

@@ -16,7 +16,7 @@ from ui.health import run_health_checks  # noqa: E402
 
 REQUIRED_FILES = [
     "ui/streamlit_app.py",
-    "ui/services.py",
+    "ui/demo_service.py",
     "ui/health.py",
     "deployment/Dockerfile",
     "deployment/.dockerignore",

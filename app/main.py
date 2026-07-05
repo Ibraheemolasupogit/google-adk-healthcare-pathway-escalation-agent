@@ -43,7 +43,7 @@ from tools.evidence_tools import load_local_evidence
 from tools.exceptions import CaseNotFoundError, DomainValidationError, PathwayRuleNotFoundError
 from tools.pathway_tools import load_pathway_rules
 from ui.config import SAFETY_BANNER, available_public_modes, load_ui_config
-from ui.services import list_case_options, load_evaluation_evidence
+from ui.demo_service import list_case_options, load_evaluation_evidence
 
 ARTIFACT_DIR = Path("artifacts") / "assessments"
 

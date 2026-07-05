@@ -38,7 +38,7 @@
 ## Human-in-the-Loop
 
 - Where implemented: `services/human_review_service.py`, `schemas/review.py`, Streamlit Human Review tab.
-- Key files: `services/human_review_service.py`, `tests/unit/test_human_review_service.py`, `ui/services.py`.
+- Key files: `services/human_review_service.py`, `tests/unit/test_human_review_service.py`, `ui/demo_service.py`.
 - Demonstration: Reviewer alias is required before approve, amend or reject decisions.
 - Limitations: Reviewer alias is not authenticated identity.
 
@@ -55,4 +55,3 @@
 - Key files: `deployment/Dockerfile`, `deployment/cloud-run.md`, `deployment/service.yaml.example`.
 - Demonstration: Verification script checks imports, mock-MCP, evidence and container configuration.
 - Limitations: Cloud Run deployment was not performed.
-

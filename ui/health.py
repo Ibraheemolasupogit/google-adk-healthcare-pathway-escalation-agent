@@ -13,7 +13,7 @@ from tools.exceptions import DomainValidationError
 from tools.pathway_tools import load_pathway_rules
 
 from ui.config import SAFETY_BANNER, UIConfig
-from ui.services import load_evaluation_evidence, prepare_review, run_agent, run_deterministic
+from ui.demo_service import load_evaluation_evidence, prepare_review, run_agent, run_deterministic
 
 
 def run_health_checks(config: UIConfig) -> dict[str, Any]:
