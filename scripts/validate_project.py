@@ -1,4 +1,4 @@
-"""Validate the Milestone 7 repository scaffold, data, UI and deployment files."""
+"""Validate the repository scaffold, data, UI, deployment and submission files."""
 
 from __future__ import annotations
 
@@ -48,6 +48,7 @@ REQUIRED_PATHS = [
     "ui/help_content.py",
     "ui/health.py",
     "scripts/verify_deployment.py",
+    "scripts/final_submission_check.py",
     "deployment/Dockerfile",
     "deployment/.dockerignore",
     "deployment/README.md",
@@ -106,6 +107,20 @@ REQUIRED_PATHS = [
     "docs/ui-security.md",
     "docs/video-demo-plan.md",
     "docs/screenshot-plan.md",
+    "submission/kaggle-writeup.md",
+    "submission/title-options.md",
+    "submission/elevator-pitch.md",
+    "submission/course-concept-mapping.md",
+    "submission/architecture-summary.md",
+    "submission/video-script.md",
+    "submission/video-recording-plan.md",
+    "submission/video-shot-list.md",
+    "submission/screenshot-plan.md",
+    "submission/cover-image-brief.md",
+    "submission/demo-commands.md",
+    "submission/results-summary.md",
+    "submission/responsible-ai.md",
+    "submission/final-submission-checklist.md",
     "docs/evidence/milestone-6/evaluation-summary.md",
     "docs/evidence/milestone-6/metric-summary.csv",
     "docs/evidence/milestone-6/evaluation-manifest.json",
@@ -171,7 +186,7 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
-    print("Milestone 7 project validation passed.")
+    print("Milestone 8 project validation passed.")
     return 0
 
 

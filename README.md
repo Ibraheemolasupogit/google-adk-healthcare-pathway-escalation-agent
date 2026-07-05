@@ -2,7 +2,7 @@
 
 NHS Pathway Escalation and Evidence Agent is a portfolio-quality project for the Kaggle **AI Agents: Intensive Vibe Coding Capstone Project** under the **Agents for Good** track. It currently implements a deterministic domain layer for synthetic NHS operational pathway cases: case validation, demonstration pathway-rule loading, elapsed-time calculation, breach classification, explainable operational risk scoring, operational action generation, audit traces and a CLI.
 
-This repository now includes Google ADK orchestration, local MCP-compatible servers, a bounded MCP adapter, reusable Agent Skills, central security guardrails, deterministic-integrity checks, a backend human-review workflow, offline mock/mock-mcp execution, a reproducible Milestone 6 evaluation framework, and a Streamlit demonstration interface with Cloud Run-ready containerisation. Final Kaggle write-up, final screenshots, final video upload and final submission text remain planned later work.
+This repository now includes Google ADK orchestration, local MCP-compatible servers, a bounded MCP adapter, reusable Agent Skills, central security guardrails, deterministic-integrity checks, a backend human-review workflow, offline mock/mock-mcp execution, a reproducible Milestone 6 evaluation framework, a Streamlit demonstration interface with Cloud Run-ready containerisation and a final Kaggle submission package under `submission/`. Final Kaggle submission, YouTube upload and Cloud Run deployment remain manual actions.
 
 ## Implemented in Milestone 2
 
@@ -36,6 +36,7 @@ This repository now includes Google ADK orchestration, local MCP-compatible serv
 - Committed benchmark evidence snapshot under `docs/evidence/milestone-6/`.
 - Streamlit demonstration UI for synthetic case selection, deterministic assessment, ADK workflow display, evidence, guardrails, human review and evaluation evidence.
 - Containerisation and Cloud Run-ready configuration with safe mock-MCP defaults.
+- Kaggle submission package with write-up, demo script, shot list, screenshot plan, cover brief, results summary, responsible-AI statement and final checklist.
 
 ## Planned Later
 
@@ -46,7 +47,9 @@ This repository now includes Google ADK orchestration, local MCP-compatible serv
 - Actual Cloud Run deployment.
 - Verified live Gemini execution.
 - Authenticated reviewer identity.
-- Final Kaggle write-up, screenshots, video upload and submission text.
+- Actual Kaggle submission.
+- Final screenshot capture and cover-image generation.
+- Final YouTube video upload.
 
 ## Problem Statement
 
@@ -76,6 +79,36 @@ make install
 ```
 
 Do not commit `.env` files or credentials.
+
+## Quick Demo
+
+Run the primary mock-MCP agent demonstration:
+
+```bash
+python3 -m app.main agent-assess --case-id SYN-CANCER-62-003 --mode mock-mcp --json
+```
+
+Run the Streamlit demonstration in presentation mode:
+
+```bash
+DEMO_PRESENTATION_MODE=true streamlit run ui/streamlit_app.py
+```
+
+If the Streamlit console script is unavailable:
+
+```bash
+DEMO_PRESENTATION_MODE=true python3 -m streamlit run ui/streamlit_app.py
+```
+
+The public demonstration defaults to offline `mock-mcp` mode, uses synthetic data only and does not require Gemini credentials.
+
+## Kaggle Submission
+
+- Kaggle write-up URL: [add after submission]
+- YouTube demo URL: [add after upload]
+- Deployed demo URL: [optional, add only if actually deployed]
+
+Submission materials are prepared under `submission/`. The repository does not submit to Kaggle, upload to YouTube or deploy to Cloud Run automatically.
 
 ## CLI
 
@@ -186,6 +219,7 @@ tests/        unit, integration and security tests
 - [UI security](docs/ui-security.md)
 - [Video demo plan](docs/video-demo-plan.md)
 - [Screenshot plan](docs/screenshot-plan.md)
+- [Kaggle submission package](submission/kaggle-writeup.md)
 - [Data and secret handling](docs/data-and-secret-handling.md)
 - [Deterministic integrity](docs/deterministic-integrity.md)
 - [Tool access matrix](docs/tool-access-matrix.md)
@@ -194,6 +228,10 @@ tests/        unit, integration and security tests
 ## Disclaimer
 
 This repository is for education, competition demonstration and software architecture development using synthetic data only. It does not provide medical advice, clinical diagnosis, treatment recommendations, operational policy authority or autonomous clinical decision-making.
+
+## Acknowledgements
+
+This project was created for the Kaggle AI Agents Intensive Vibe Coding Capstone Project in the Agents for Good track. It uses Google ADK, Model Context Protocol concepts, Streamlit and open-source Python dependencies. No endorsement by the NHS, Kaggle, Google, Streamlit or MCP maintainers is implied.
 
 ## Licence
 
