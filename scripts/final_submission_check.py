@@ -32,13 +32,27 @@ REQUIRED_SUBMISSION_FILES = [
     "submission/results-summary.md",
     "submission/responsible-ai.md",
     "submission/final-submission-checklist.md",
+    "submission/github-metadata.md",
+]
+REQUIRED_DOCUMENTATION_FILES = [
+    "docs/vibe-coding-workflow.md",
+    "docs/development-assistants.md",
+    "docs/skills-showcase.md",
+    "docs/evidence/antigravity/README.md",
 ]
 README_REQUIRED_SECTIONS = [
     "Quick Demo",
     "Kaggle Submission",
     "Acknowledgements",
     "Security and Responsible AI",
+    "Development Approach: Spec-Driven Vibe Coding",
     "Disclaimer",
+]
+README_REQUIRED_LINKS = [
+    "docs/vibe-coding-workflow.md",
+    "docs/development-assistants.md",
+    "docs/skills-showcase.md",
+    "docs/evidence/antigravity/README.md",
 ]
 SUBMISSION_REQUIRED_LANGUAGE = {
     "submission/kaggle-writeup.md": ["synthetic", "does not provide clinical advice"],
@@ -62,6 +76,23 @@ UNSUPPORTED_CLAIMS = [
     re.compile(r"\blive Gemini (?:execution )?(?:was )?verified\b", re.I),
     re.compile(r"\bconnected to live NHS systems\b", re.I),
 ]
+ANTIGRAVITY_UNSUPPORTED_CLAIMS = [
+    re.compile(r"\bAntigravity\s+is\s+(?:a\s+)?runtime dependenc", re.I | re.S),
+    re.compile(
+        r"\bAntigravity\b.{0,80}\bbuilt "
+        r"(?:the )?(?:entire|whole) (?:repo|repository|application|app)\b",
+        re.I | re.S,
+    ),
+    re.compile(
+        r"\b(?:repo|repository|application|app)\b"
+        r".{0,80}\bbuilt entirely\b.{0,80}\bAntigravity\b",
+        re.I | re.S,
+    ),
+    re.compile(
+        r"\bAntigravity\s+is\s+required (?:at runtime|for deployment|to run)\b",
+        re.I | re.S,
+    ),
+]
 PROHIBITED_DATA_KEYS = {
     "nhs_number",
     "date_of_birth",
@@ -76,12 +107,15 @@ def main() -> int:
     """Run final submission validation."""
     errors: list[str] = []
     errors.extend(_required_files())
+    errors.extend(_required_documentation())
     errors.extend(_writeup_word_count())
     errors.extend(_video_length())
     errors.extend(_readme_sections())
+    errors.extend(_readme_links())
     errors.extend(_evidence_snapshot())
     errors.extend(_required_language())
     errors.extend(_scan_public_files())
+    errors.extend(_development_tooling_claims())
     errors.extend(_runtime_artifacts())
     errors.extend(_data_keys())
     errors.extend(_primary_case())
@@ -98,6 +132,14 @@ def _required_files() -> list[str]:
     return [
         f"missing required submission file: {path}"
         for path in REQUIRED_SUBMISSION_FILES
+        if not (PROJECT_ROOT / path).exists()
+    ]
+
+
+def _required_documentation() -> list[str]:
+    return [
+        f"missing required documentation file: {path}"
+        for path in REQUIRED_DOCUMENTATION_FILES
         if not (PROJECT_ROOT / path).exists()
     ]
 
@@ -131,6 +173,17 @@ def _readme_sections() -> list[str]:
         for section in README_REQUIRED_SECTIONS
         if section not in text
     ]
+
+
+def _readme_links() -> list[str]:
+    text = (PROJECT_ROOT / "README.md").read_text(encoding="utf-8")
+    errors: list[str] = []
+    for link in README_REQUIRED_LINKS:
+        if link not in text:
+            errors.append(f"README missing required link: {link}")
+        elif not (PROJECT_ROOT / link).exists():
+            errors.append(f"README link target does not exist: {link}")
+    return errors
 
 
 def _evidence_snapshot() -> list[str]:
@@ -173,6 +226,8 @@ def _scan_public_files() -> list[str]:
         for url_pattern in FAKE_URL_PATTERNS:
             if url_pattern.search(text):
                 errors.append(f"fake URL in public file: {relative}")
+        if _mentions_fake_screenshot(text):
+            errors.append(f"fake screenshot claim in public file: {relative}")
         for claim_pattern in UNSUPPORTED_CLAIMS:
             match = claim_pattern.search(text)
             if match is None:
@@ -181,6 +236,51 @@ def _scan_public_files() -> list[str]:
             if "not " not in prefix:
                 errors.append(f"unsupported claim in public file: {relative}")
     return errors
+
+
+def _development_tooling_claims() -> list[str]:
+    errors: list[str] = []
+    public_text = "\n".join(
+        path.read_text(encoding="utf-8", errors="ignore") for path in _public_files()
+    )
+    for pattern in ANTIGRAVITY_UNSUPPORTED_CLAIMS:
+        if pattern.search(public_text):
+            errors.append("unsupported Antigravity runtime or authorship claim in public docs")
+            break
+
+    antigravity_page = PROJECT_ROOT / "docs/evidence/antigravity/README.md"
+    if antigravity_page.exists():
+        text = antigravity_page.read_text(encoding="utf-8")
+        required = [
+            "does not contain sufficient tracked evidence",
+            "not a runtime dependency",
+            "Do not add fake screenshots",
+        ]
+        for phrase in required:
+            if phrase not in text:
+                errors.append(f"Antigravity evidence page missing required phrase: {phrase}")
+
+    dev_page = PROJECT_ROOT / "docs/development-assistants.md"
+    if dev_page.exists():
+        text = dev_page.read_text(encoding="utf-8")
+        if "Runtime Technologies" not in text or "Development Assistants" not in text:
+            errors.append("development assistant doc does not separate tools and runtime")
+        if "not runtime dependencies" not in text and "not a runtime dependency" not in text:
+            errors.append("development assistant doc does not state assistants are not runtime")
+    return errors
+
+
+def _mentions_fake_screenshot(text: str) -> bool:
+    lowered = text.lower()
+    suspicious = ["fake screenshot", "placeholder screenshot", "todo screenshot"]
+    for term in suspicious:
+        start = lowered.find(term)
+        if start == -1:
+            continue
+        prefix = lowered[max(0, start - 20) : start]
+        if "do not add " not in prefix:
+            return True
+    return False
 
 
 def _runtime_artifacts() -> list[str]:

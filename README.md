@@ -69,6 +69,12 @@ All pathway targets are demonstration data only. Operational users must validate
 
 The project uses synthetic data only and must never include patient names, NHS numbers, dates of birth, hospital numbers, addresses or real clinical notes. The risk score is operational rather than clinical and must not be used for diagnosis, treatment, clinical prioritisation or autonomous clinical decision-making. Every assessment and escalation draft requires human review.
 
+## Development Approach: Spec-Driven Vibe Coding
+
+The project was developed iteratively from natural-language specifications and milestone-level acceptance criteria. Development assistants supported implementation, documentation and review, but generated changes were accepted only after linting, type checking, automated tests, security evaluation and reproducible benchmark validation. Antigravity is documented only as a development tool where genuine evidence exists; it is not required at runtime.
+
+Development workflow includes vibe coding, milestone specifications, Codex-assisted implementation support and human review of generated changes. Runtime implementation is separate: Python deterministic services, Google ADK agent orchestration, local MCP-compatible adapters, Agent Skills, Pydantic schemas and Streamlit.
+
 ## Local Setup
 
 ```bash
@@ -219,6 +225,10 @@ tests/        unit, integration and security tests
 - [UI security](docs/ui-security.md)
 - [Video demo plan](docs/video-demo-plan.md)
 - [Screenshot plan](docs/screenshot-plan.md)
+- [Spec-driven vibe coding workflow](docs/vibe-coding-workflow.md)
+- [Development assistants and runtime technologies](docs/development-assistants.md)
+- [Skills showcase](docs/skills-showcase.md)
+- [Antigravity evidence status](docs/evidence/antigravity/README.md)
 - [Kaggle submission package](submission/kaggle-writeup.md)
 - [Data and secret handling](docs/data-and-secret-handling.md)
 - [Deterministic integrity](docs/deterministic-integrity.md)

@@ -16,6 +16,12 @@ Pathway review requires consistency and traceability. Human reviewers need to se
 
 This project demonstrates a safer pattern: deterministic calculations remain the source of truth, while Google ADK agents coordinate a review workflow around those calculations. The public demo defaults to `mock-mcp` mode. That mode uses Google ADK agent definitions, local MCP-compatible capabilities, controlled local evidence and guardrails without requiring a Gemini API key. Mock mode does not call Gemini and should not be described as a Gemini response. Live Gemini configuration exists as an optional path, but live Gemini execution was not verified for this submission.
 
+## Development method
+
+The project was built through spec-driven vibe coding: natural-language requirements were converted into milestone acceptance criteria, implementation tasks and validation gates. Development assistants supported scaffolding, code changes, tests, documentation and defect correction, but generated changes were reviewed before acceptance. Antigravity is documented only as course/development context where evidence supports it; it is not a runtime dependency. Codex-assisted work supported implementation and validation in this environment, while the project owner retained architectural authority, safety boundaries and submission responsibility.
+
+Every milestone had quality gates. Generated or assisted changes had to pass linting, formatting checks, type checking, automated tests, security evaluation and reproducible benchmark validation. One concrete defect corrected during final hardening was a Streamlit import-shadowing issue where `ui/services.py` conflicted with the top-level `services` package; the permanent fix renamed the UI helper module to `ui/demo_service.py` and updated imports.
+
 ## Intended users
 
 The intended demonstration users are operational reviewers, pathway coordinators, digital health teams, AI safety reviewers and competition judges. The system is not intended for patients, diagnosis, treatment planning, medication advice, clinical triage or production NHS deployment. It uses synthetic data only.
@@ -94,4 +100,3 @@ The NHS Pathway Escalation and Evidence Agent shows how an agent system can supp
 - Kaggle write-up URL: [add after submission]
 - YouTube demo URL: [add after upload]
 - Deployed demo URL: [optional, add only if actually deployed]
-
