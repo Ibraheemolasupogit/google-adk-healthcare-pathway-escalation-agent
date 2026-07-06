@@ -108,6 +108,16 @@ DEMO_PRESENTATION_MODE=true python3 -m streamlit run ui/streamlit_app.py
 
 The public demonstration defaults to offline `mock-mcp` mode, uses synthetic data only and does not require Gemini credentials.
 
+## Demo Screenshots
+
+| Overview | Deterministic Assessment |
+|---|---|
+| ![Overview](docs/images/demo/01-overview.png) | ![Deterministic assessment](docs/images/demo/02-deterministic-assessment.png) |
+
+| Agent Workflow | Human Review |
+|---|---|
+| ![Agent workflow](docs/images/demo/03-agent-mcp-workflow.png) | ![Human review](docs/images/demo/06-human-review-approved.png) |
+
 ## Kaggle Submission
 
 - Kaggle write-up URL: [add after submission]
