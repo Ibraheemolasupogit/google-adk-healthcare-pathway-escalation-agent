@@ -45,3 +45,13 @@ The development workflow combines natural-language specifications, milestone tas
 ## Boundary Statement
 
 Development assistants can accelerate implementation and documentation. They do not remove the need for domain review, tests, safety checks, benchmark validation or clear claims about what the system does and does not do.
+
+## Runtime Boundaries and Demo Execution
+
+To ensure clear boundaries between the development process and the executable system:
+- **Antigravity** is a development assistant and course environment tool, not a runtime dependency.
+- **Vibe coding** is the specification-driven development workflow, not a runtime application module.
+- The **public demo** runs strictly in an offline, local `mock-mcp` execution mode.
+- **No live Gemini calls** or live NHS systems are contacted or integrated during the public demo.
+- **Deterministic calculations** implemented in Python remain the absolute source of truth for pathway targets, elapsed times, and risk scoring.
+
